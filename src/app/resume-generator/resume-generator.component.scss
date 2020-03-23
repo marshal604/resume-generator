@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  height: 100%;
+}
+
+.parent-container {
+  min-width: 860px;
+}
+
+.separate-line {
+  flex-shrink: 0;
+  flex-basis: 8px;
+  height: 100%;
+  box-shadow: 4px 0 4px #ddd;
+}
