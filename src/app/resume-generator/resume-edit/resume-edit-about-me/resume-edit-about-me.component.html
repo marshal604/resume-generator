@@ -1,0 +1,23 @@
+<ng-container [formGroup]="form">
+  <div *ngFor="let data of formMappingList; let i = index" class="category" [class.mt-16]="i !== 0" [attr.type]="dataType.Category">
+    <div class="title">{{ data.label }}</div>
+    <div *ngFor="let item of data.children" class="content-item" [attr.type]="item.type">
+      <ng-container [ngSwitch]="item.type">
+        <ng-template [ngSwitchCase]="dataType.Text">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ item.label }}</mat-label>
+            <input matInput [formControlName]="item.id" [placeholder]="item.placeholder" />
+            <mat-hint>{{ item.hint }}</mat-hint>
+          </mat-form-field>
+        </ng-template>
+        <ng-template [ngSwitchCase]="dataType.File">
+          <mat-form-field appearance="outline">
+            <input [style.display]="'none'" matInput [formControlName]="item.id" [placeholder]="item.placeholder" />
+            <input type="file" />
+            <mat-hint>{{ item.hint }}</mat-hint>
+          </mat-form-field>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
