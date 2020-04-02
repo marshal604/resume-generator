@@ -12,8 +12,13 @@
         </ng-template>
         <ng-template [ngSwitchCase]="dataType.File">
           <mat-form-field appearance="outline">
-            <input [style.display]="'none'" matInput [formControlName]="item.id" [placeholder]="item.placeholder" />
-            <input type="file" />
+            <input [style.display]="'none'" matInput [formControlName]="item.id" />
+            <yur-upload-image
+              [src]="form.get(formProp.Photo)?.value"
+              [options]="{ defaultText: item.placeholder, aspectRatio: 1 }"
+              (srcChange)="onSrcChange($event)"
+            >
+            </yur-upload-image>
             <mat-hint>{{ item.hint }}</mat-hint>
           </mat-form-field>
         </ng-template>

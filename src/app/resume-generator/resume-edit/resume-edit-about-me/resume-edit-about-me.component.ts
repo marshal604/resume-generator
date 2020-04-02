@@ -16,6 +16,7 @@ import { CvaBase, createValueAccessor } from '@shared/base/cva.base';
   providers: [createValueAccessor(ResumeEditAboutMeComponent)]
 })
 export class ResumeEditAboutMeComponent extends CvaBase<ResumeEditAboutMeFormData> implements OnInit, OnDestroy {
+  readonly formProp = ResumeEditAboutMeFormProperties;
   formMappingList: Array<DataItem>;
   dataType = DataType;
   subscription: Subscription;
@@ -35,6 +36,12 @@ export class ResumeEditAboutMeComponent extends CvaBase<ResumeEditAboutMeFormDat
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onSrcChange(src: string) {
+    this.form.patchValue({
+      [ResumeEditAboutMeFormProperties.Photo]: src
+    });
   }
 
   initForm() {
@@ -84,6 +91,7 @@ export class ResumeEditAboutMeComponent extends CvaBase<ResumeEditAboutMeFormDat
             id: ResumeEditAboutMeFormProperties.Photo,
             type: DataType.File,
             label: 'Photo',
+            placeholder: 'Upload Photo',
             hint: 'upload your personal photo.',
             value: this.form.value[ResumeEditAboutMeFormProperties.Photo]
           },
