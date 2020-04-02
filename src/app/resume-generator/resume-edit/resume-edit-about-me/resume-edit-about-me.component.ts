@@ -2,40 +2,32 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { DataItem, DataType } from '../resume-edit.component.model';
 import {
   ResumeEditAboutMeFormData,
   ResumeEditAboutMeFormProperties,
   RESUME_EDIT_ABOUT_ME_FORM_GROUP
 } from './resume-edit-about-me.component.model';
-import { CvaBase, createValueAccessor } from '@shared/base/cva.base';
+import { createValueAccessor } from '@shared/base/cva.base';
+import { ResumeEditCVABase } from '@shared/base/resume-edit-cva.base';
+import { DataItem, DataType } from '@shared/base/resume-edit-cva.base';
+
 @Component({
   selector: 'yur-resume-edit-about-me',
   templateUrl: './resume-edit-about-me.component.html',
   styleUrls: ['./resume-edit-about-me.component.scss'],
   providers: [createValueAccessor(ResumeEditAboutMeComponent)]
 })
-export class ResumeEditAboutMeComponent extends CvaBase<ResumeEditAboutMeFormData> implements OnInit, OnDestroy {
-  readonly formProp = ResumeEditAboutMeFormProperties;
-  formMappingList: Array<DataItem>;
-  dataType = DataType;
-  subscription: Subscription;
+export class ResumeEditAboutMeComponent extends ResumeEditCVABase<ResumeEditAboutMeFormData> implements OnInit, OnDestroy {
+  formProp = ResumeEditAboutMeFormProperties;
   constructor(private fb: FormBuilder) {
     super();
   }
 
   ngOnInit() {
     super.ngOnInit();
-    this.subscription = new Subscription();
-    this.initMappingList();
-    this.subscription.add(
-      this.form.valueChanges.subscribe(() => {
-        this.onChange(this.form.getRawValue());
-      })
-    );
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    super.ngOnDestroy();
   }
 
   onSrcChange(src: string) {
