@@ -6,9 +6,16 @@ import { ResumePreviewComponent } from './resume-preview/resume-preview.componen
 import { ResumeEditComponent } from './resume-edit/resume-edit.component';
 import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module';
 import { ResumeEditAboutMeComponent } from './resume-edit/resume-edit-about-me/resume-edit-about-me.component';
+import { ResumeEditProfileComponent } from './resume-edit/resume-edit-profile/resume-edit-profile.component';
 
 @NgModule({
   imports: [SharedModule, ResumeGeneratorRoutingModule],
-  declarations: [ResumeGeneratorComponent, ResumePreviewComponent, ResumeEditComponent, ResumeEditAboutMeComponent]
+  declarations: [
+    ResumeGeneratorComponent,
+    ResumePreviewComponent,
+    ResumeEditComponent,
+    ResumeEditAboutMeComponent,
+    ResumeEditProfileComponent
+  ]
 })
 export class ResumeGeneratorModule {}
