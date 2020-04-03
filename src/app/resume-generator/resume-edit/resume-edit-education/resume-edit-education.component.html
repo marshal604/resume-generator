@@ -1,0 +1,37 @@
+<h3 class="education-title">
+  Education
+  <span>
+    <button mat-icon-button>
+      <mat-icon fontSet="fas" fontIcon="fa-plus" (click)="onAddEducation()"></mat-icon>
+    </button>
+  </span>
+</h3>
+<div class="education" [formGroup]="form">
+  <mat-card [formArrayName]="formProp.Education" *ngFor="let item of form.get(formProp.Education)['controls']; let groupIndex = index">
+    <ng-container [formGroup]="item">
+      <h4 class="education-group-title">
+        {{ groupIndex + 1 }}.
+        <span>
+          <button mat-icon-button>
+            <mat-icon fontSet="fas" fontIcon="fa-trash" (click)="onRemoveEducation(groupIndex)"></mat-icon>
+          </button>
+        </span>
+      </h4>
+      <mat-form-field appearance="outline">
+        <mat-label>School</mat-label>
+        <input matInput [formControlName]="formArrayProp.School" />
+        <mat-hint>write your school.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="mt-8" appearance="outline">
+        <mat-label>Department</mat-label>
+        <input matInput [formControlName]="formArrayProp.Department" />
+        <mat-hint>write your department of school.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="mt-8" appearance="outline">
+        <mat-label>Period</mat-label>
+        <input matInput [formControlName]="formArrayProp.Period" />
+        <mat-hint>write your period from enrolled to graduation.</mat-hint>
+      </mat-form-field>
+    </ng-container>
+  </mat-card>
+</div>

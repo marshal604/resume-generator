@@ -7,6 +7,7 @@ import { ResumeEditComponent } from './resume-edit/resume-edit.component';
 import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module';
 import { ResumeEditAboutMeComponent } from './resume-edit/resume-edit-about-me/resume-edit-about-me.component';
 import { ResumeEditProfileComponent } from './resume-edit/resume-edit-profile/resume-edit-profile.component';
+import { ResumeEditEducationComponent } from './resume-edit/resume-edit-education/resume-edit-education.component';
 
 @NgModule({
   imports: [SharedModule, ResumeGeneratorRoutingModule],
@@ -15,7 +16,8 @@ import { ResumeEditProfileComponent } from './resume-edit/resume-edit-profile/re
     ResumePreviewComponent,
     ResumeEditComponent,
     ResumeEditAboutMeComponent,
-    ResumeEditProfileComponent
+    ResumeEditProfileComponent,
+    ResumeEditEducationComponent
   ]
 })
 export class ResumeGeneratorModule {}

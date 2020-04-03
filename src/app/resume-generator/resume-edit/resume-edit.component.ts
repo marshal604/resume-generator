@@ -31,7 +31,8 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
   initForm() {
     this.form = this.fb.group({
       aboutMe: this.fb.control(''),
-      profile: this.fb.control('')
+      profile: this.fb.control(''),
+      education: this.fb.control('')
     });
   }
 }
