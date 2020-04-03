@@ -1,0 +1,22 @@
+.experience-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 12px;
+  row-gap: 8px;
+
+  mat-form-field {
+    display: block;
+  }
+
+  .experience-group-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

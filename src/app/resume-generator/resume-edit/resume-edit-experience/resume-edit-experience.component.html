@@ -1,0 +1,53 @@
+<h3 class="experience-title">
+  Experience
+  <span>
+    <button mat-icon-button>
+      <mat-icon fontSet="fas" fontIcon="fa-plus" (click)="onAddExperience()"></mat-icon>
+    </button>
+  </span>
+</h3>
+<div class="experience" [formGroup]="form">
+  <mat-card [formArrayName]="formProp.Experience" *ngFor="let item of form.get(formProp.Experience)['controls']; let groupIndex = index">
+    <ng-container [formGroup]="item">
+      <h4 class="experience-group-title">
+        {{ groupIndex + 1 }}.
+        <span>
+          <button mat-icon-button>
+            <mat-icon fontSet="fas" fontIcon="fa-trash" (click)="onRemoveExperience(groupIndex)"></mat-icon>
+          </button>
+        </span>
+      </h4>
+      <mat-form-field appearance="outline">
+        <mat-label>Job Period</mat-label>
+        <input matInput [formControlName]="formArrayProp.Period" />
+        <mat-hint>write your job period.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="mt-8" appearance="outline">
+        <mat-label>Company</mat-label>
+        <input matInput [formControlName]="formArrayProp.Company" />
+        <mat-hint>write your company.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="mt-8" appearance="outline">
+        <mat-label>Job Title</mat-label>
+        <input matInput [formControlName]="formArrayProp.JobTitle" />
+        <mat-hint>write your job title in company.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="mt-8" appearance="outline">
+        <mat-label>Job Skill</mat-label>
+        <textarea
+          rows="10"
+          matInput
+          [formControlName]="formArrayProp.SkillTags"
+          placeholder="Separate skill name by comma, e.g, Css3, Nodejs"
+        >
+        </textarea>
+        <mat-hint>write your job skill in company.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="mt-8" appearance="outline">
+        <mat-label>Job Description</mat-label>
+        <textarea rows="10" matInput [formControlName]="formArrayProp.JobDescription"> </textarea>
+        <mat-hint>write your job description</mat-hint>
+      </mat-form-field>
+    </ng-container>
+  </mat-card>
+</div>
