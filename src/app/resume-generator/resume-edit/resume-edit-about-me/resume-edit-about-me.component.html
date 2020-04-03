@@ -1,28 +1,57 @@
 <ng-container [formGroup]="form">
-  <div *ngFor="let data of formMappingList; let i = index" class="category" [class.mt-16]="i !== 0" [attr.type]="dataType.Category">
-    <div class="title">{{ data.label }}</div>
-    <div *ngFor="let item of data.children" class="content-item" [attr.type]="item.type">
-      <ng-container [ngSwitch]="item.type">
-        <ng-template [ngSwitchCase]="dataType.Text">
-          <mat-form-field appearance="outline">
-            <mat-label>{{ item.label }}</mat-label>
-            <input matInput [formControlName]="item.id" [placeholder]="item.placeholder" />
-            <mat-hint>{{ item.hint }}</mat-hint>
-          </mat-form-field>
-        </ng-template>
-        <ng-template [ngSwitchCase]="dataType.File">
-          <mat-form-field appearance="outline">
-            <input [style.display]="'none'" matInput [formControlName]="item.id" />
-            <yur-upload-image
-              [src]="form.get(formProp.Photo)?.value"
-              [options]="{ defaultText: item.placeholder, aspectRatio: 1 }"
-              (srcChange)="onSrcChange($event)"
-            >
-            </yur-upload-image>
-            <mat-hint>{{ item.hint }}</mat-hint>
-          </mat-form-field>
-        </ng-template>
-      </ng-container>
-    </div>
-  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Job Title</mat-label>
+    <input matInput [formControlName]="formProp.JobTitle" />
+    <mat-hint>write your job title.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Chinese Name</mat-label>
+    <input matInput [formControlName]="formProp.ChineseName" />
+    <mat-hint>write your chinese name.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>English Name</mat-label>
+    <input matInput [formControlName]="formProp.EnglishName" />
+    <mat-hint>write your english name.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input [style.display]="'none'" matInput [formControlName]="formProp.Phone" />
+    <yur-upload-image
+      [src]="form.get(formProp.Photo)?.value"
+      [options]="{ defaultText: 'Upload Photo', aspectRatio: 1 }"
+      (srcChange)="onSrcChange($event)"
+    >
+    </yur-upload-image>
+    <mat-hint>upload your photo.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Age</mat-label>
+    <input matInput [formControlName]="formProp.Age" />
+    <mat-hint>write your age.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Blog</mat-label>
+    <input matInput [formControlName]="formProp.Blog" />
+    <mat-hint>write your blog link.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Phone</mat-label>
+    <input matInput [formControlName]="formProp.Phone" />
+    <mat-hint>write your phone number.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput [formControlName]="formProp.Email" />
+    <mat-hint>write your email.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>GitHub</mat-label>
+    <input matInput [formControlName]="formProp.Github" />
+    <mat-hint>write your GitHub.</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>CodePen</mat-label>
+    <input matInput [formControlName]="formProp.CodePen" />
+    <mat-hint>write your CodePen.</mat-hint>
+  </mat-form-field>
 </ng-container>

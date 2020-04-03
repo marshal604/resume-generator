@@ -1,14 +1,26 @@
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { OnInit, Provider, forwardRef, Type } from '@angular/core';
+import { OnInit, Provider, forwardRef, Type, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
-export abstract class CvaBase<T> implements ControlValueAccessor, OnInit {
+export abstract class CvaBase<T> implements ControlValueAccessor, OnInit, OnDestroy {
   form: FormGroup;
   onChange: (data: T) => void;
   onTouched: any;
+  subscription: Subscription;
   constructor() {}
 
   ngOnInit() {
+    this.subscription = new Subscription();
     this.initForm();
+    this.subscription.add(
+      this.form.valueChanges.subscribe(() => {
+        this.onChange(this.form.getRawValue());
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   writeValue(obj: T) {
