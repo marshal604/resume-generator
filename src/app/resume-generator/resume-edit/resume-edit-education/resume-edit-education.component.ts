@@ -29,6 +29,24 @@ export class ResumeEditEducationComponent extends CvaBase<ResumeEditEducationFor
     });
   }
 
+  writeValue(val: ResumeEditEducationFormData) {
+    if (!val) {
+      return;
+    }
+    const formArrayLength = (this.form.get(ResumeEditEducationFormProperties.Education) as FormArray).length;
+    const parentFormArrayLength = val.education.length;
+    if (formArrayLength !== parentFormArrayLength) {
+      this.form.setControl(
+        ResumeEditEducationFormProperties.Education,
+        this.fb.array(val.education.map(() => this.educationFormArrayItem))
+      );
+      this.form.setValue(val, { emitEvent: true });
+      return;
+    }
+
+    this.form.setValue(val, { emitEvent: false });
+  }
+
   initForm() {
     this.form = this.fb.group({
       [ResumeEditEducationFormProperties.Education]: this.fb.array([this.educationFormArrayItem, this.educationFormArrayItem])

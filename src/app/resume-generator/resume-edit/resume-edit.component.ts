@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { ResumeEditFormData } from './resume-edit.component.model';
-
 @Component({
   selector: 'yur-resume-edit',
   templateUrl: './resume-edit.component.html',
@@ -63,7 +62,7 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
     const reader = new FileReader();
     reader.onload = (e: ProgressEvent<FileReader>) => {
       try {
-        this.form.setValue(JSON.parse(e.target.result.toString()));
+        this.updateJsonToForm(e.target.result.toString());
       } catch (error) {
         alert('content format incorrect.');
       }
@@ -80,11 +79,49 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.http.get(`assets/resume-edit/${filePath}`).subscribe(data => {
         try {
-          this.form.setValue(data);
+          this.updateJsonToForm(JSON.stringify(data));
         } catch (error) {
           alert('content format incorrect');
         }
       })
     );
+  }
+
+  updateJsonToForm(text: string) {
+    let jsonData: ResumeEditFormData = JSON.parse(text);
+    jsonData = {
+      aboutMe: {
+        jobTitle: jsonData.aboutMe.jobTitle,
+        chineseName: jsonData.aboutMe.chineseName,
+        englishName: jsonData.aboutMe.englishName,
+        photo: jsonData.aboutMe.photo,
+        age: jsonData.aboutMe.age,
+        blog: jsonData.aboutMe.blog,
+        email: jsonData.aboutMe.email,
+        phone: jsonData.aboutMe.phone,
+        github: jsonData.aboutMe.github,
+        codePen: jsonData.aboutMe.codePen
+      },
+      education: {
+        education: (jsonData.education.education || []).map(item => ({
+          school: item.school,
+          department: item.department,
+          period: item.period
+        }))
+      },
+      profile: {
+        profile: jsonData.profile.profile
+      },
+      experience: {
+        experience: (jsonData.experience.experience || []).map(item => ({
+          period: item.period,
+          company: item.company,
+          jobTitle: item.jobTitle,
+          skillTags: item.skillTags,
+          jobDescription: item.jobDescription
+        }))
+      }
+    };
+    this.form.setValue(jsonData);
   }
 }

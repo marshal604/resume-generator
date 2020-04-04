@@ -31,6 +31,24 @@ export class ResumeEditExperienceComponent extends CvaBase<ResumeEditExperienceF
     });
   }
 
+  writeValue(val: ResumeEditExperienceFormData) {
+    if (!val) {
+      return;
+    }
+    const formArrayLength = (this.form.get(ResumeEditExperienceFormProperties.Experience) as FormArray).length;
+    const parentFormArrayLength = val.experience.length;
+    if (formArrayLength !== parentFormArrayLength) {
+      this.form.setControl(
+        ResumeEditExperienceFormProperties.Experience,
+        this.fb.array(val.experience.map(() => this.experienceFormArrayItem))
+      );
+      this.form.setValue(val, { emitEvent: true });
+      return;
+    }
+
+    this.form.setValue(val, { emitEvent: false });
+  }
+
   initForm() {
     this.form = this.fb.group({
       [ResumeEditExperienceFormProperties.Experience]: this.fb.array([this.experienceFormArrayItem, this.experienceFormArrayItem])
