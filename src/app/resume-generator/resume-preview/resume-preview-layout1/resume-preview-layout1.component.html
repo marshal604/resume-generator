@@ -1,0 +1,54 @@
+<div class="resume-preview">
+  <div class="about-me block">
+    <div class="job-info">
+      <yur-resume-preview-layout1-title [title]="data.jobTitle" [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-code' }">
+      </yur-resume-preview-layout1-title>
+      <div class="pl-36">
+        <b class="chinese-name">{{ data.chineseName }}</b>
+        <b class="english-name ml-8">{{ data.englishName }}</b>
+      </div>
+    </div>
+    <div class="photo-info">
+      <div class="img">
+        <img [src]="data.photo" alt="photo" />
+        <b class="age">{{ data.age }}</b>
+      </div>
+    </div>
+    <ul class="link-info">
+      <li class="link-item">
+        <mat-icon fontSet="fas" fontIcon="fa-home"></mat-icon>
+        <a [href]="data.blog" class="link">{{ data.blog }}</a>
+      </li>
+      <li class="link-item">
+        <mat-icon fontSet="fas" fontIcon="fa-envelope-square"></mat-icon>
+        <a [href]="data.email" class="link">{{ data.email }}</a>
+      </li>
+      <li class="link-item">
+        <mat-icon fontSet="fas" fontIcon="fa-phone-square-alt"></mat-icon>
+        <span class="link">{{ data.phone }}</span>
+      </li>
+      <li class="link-item">
+        <mat-icon fontSet="fab" fontIcon="fa-github"></mat-icon>
+        <a [href]="data.github" class="link">{{ data.github }}</a>
+      </li>
+      <li class="link-item">
+        <mat-icon fontSet="fab" fontIcon="fa-codepen"></mat-icon>
+        <a [href]="data.codePen" class="link">{{ data.codePen }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="block">
+    <div class="profile">
+      <div class="title"></div>
+      <div class="profile-content"></div>
+    </div>
+    <div class="education">
+      <div class="title"></div>
+      <div class="education-content"></div>
+    </div>
+  </div>
+  <div class="experience block">
+    <div class="title"></div>
+    <div class="experience-content"></div>
+  </div>
+</div>

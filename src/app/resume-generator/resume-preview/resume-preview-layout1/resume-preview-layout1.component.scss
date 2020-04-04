@@ -1,0 +1,63 @@
+$about-me-height: 200px;
+
+.about-me {
+  display: flex;
+  background: #ebebeb;
+  height: $about-me-height;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 16px;
+}
+
+.job-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-#{$about-me-height / 4});
+}
+
+.photo-info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border-bottom: 4px solid var(--resume-preview-theme-color);
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 66%;
+    height: 3px;
+    bottom: -12px;
+    background: var(--resume-preview-theme-color);
+  }
+
+  .img {
+    width: 150px;
+    height: 150px;
+    position: relative;
+
+    .age {
+      position: absolute;
+      right: -28px;
+      bottom: 8px;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.link-info {
+  list-style: none;
+
+  .link-item {
+    a {
+      color: black;
+    }
+  }
+}

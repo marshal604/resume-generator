@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { ResumePreviewData } from './resume-preview.component.model';
 
 @Component({
   selector: 'yur-resume-preview',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume-preview.component.scss']
 })
 export class ResumePreviewComponent implements OnInit {
+  @Input() data: ResumePreviewData;
   constructor() {}
 
   ngOnInit() {}
