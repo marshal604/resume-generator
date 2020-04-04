@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -12,6 +12,7 @@ import { ResumeEditFormData } from './resume-edit.component.model';
   styleUrls: ['./resume-edit.component.scss']
 })
 export class ResumeEditComponent implements OnInit, OnDestroy {
+  @ViewChild('downloadRef') downloadRef: ElementRef<HTMLElement>;
   form: FormGroup;
   subscription: Subscription;
 
@@ -39,5 +40,34 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
       education: this.fb.control(''),
       experience: this.fb.control('')
     });
+  }
+
+  onDownloadFile() {
+    if (!this.downloadRef) {
+      return;
+    }
+    const file = new Blob([JSON.stringify(this.form.getRawValue())], { type: 'text/plain' });
+    const fileName = 'resume-edit-form';
+    const url = window.URL.createObjectURL(file);
+    this.downloadRef.nativeElement.setAttribute('href', url);
+    this.downloadRef.nativeElement.setAttribute('download', fileName);
+    this.downloadRef.nativeElement.click();
+  }
+
+  onUploadFile(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    if (!file) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e: ProgressEvent<FileReader>) => {
+      try {
+        this.form.setValue(JSON.parse(e.target.result.toString()));
+      } catch (error) {
+        alert('content format incorrect.');
+      }
+    };
+
+    reader.readAsText(file);
   }
 }
