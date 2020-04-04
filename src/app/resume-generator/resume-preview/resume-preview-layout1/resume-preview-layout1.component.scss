@@ -7,57 +7,168 @@ $about-me-height: 200px;
   justify-content: center;
   align-items: flex-end;
   padding: 0 16px;
-}
 
-.job-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(-#{$about-me-height / 4});
-}
-
-.photo-info {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  border-bottom: 4px solid var(--resume-preview-theme-color);
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 66%;
-    height: 3px;
-    bottom: -12px;
-    background: var(--resume-preview-theme-color);
+  .job-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-#{$about-me-height / 4});
   }
 
-  .img {
-    width: 150px;
-    height: 150px;
+  .photo-info {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border-bottom: 4px solid var(--resume-preview-theme-color);
     position: relative;
 
-    .age {
+    &:before {
+      content: '';
       position: absolute;
-      right: -28px;
-      bottom: 8px;
+      width: 66%;
+      height: 3px;
+      bottom: -12px;
+      background: var(--resume-preview-theme-color);
+    }
+
+    .img {
+      width: 150px;
+      height: 150px;
+      position: relative;
+
+      .age {
+        position: absolute;
+        right: -28px;
+        bottom: 8px;
+      }
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
     }
   }
 
-  img {
-    height: 100%;
-    width: 100%;
+  .link-info {
+    .link-item {
+      .mat-icon {
+        color: var(--resume-preview-theme-color);
+        text-align: center;
+        margin-right: 4px;
+      }
+
+      a {
+        color: black;
+      }
+    }
   }
 }
 
-.link-info {
-  list-style: none;
+.personal-profile {
+  display: flex;
 
-  .link-item {
-    a {
-      color: black;
+  .profile {
+    flex: 3;
+
+    .profile-content {
+      white-space: pre-line;
+    }
+  }
+
+  .education {
+    flex: 2;
+
+    .education-item {
+      display: flex;
+
+      & + .education-item {
+        margin-top: 16px;
+      }
+
+      .mat-icon {
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.experience {
+  .experience-list {
+    position: relative;
+    $line-color: rgb(51, 50, 50);
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      background: $line-color;
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      content: '▴';
+      position: absolute;
+      top: 0;
+      left: 1px;
+      font-size: 24px;
+      height: 0;
+      width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $line-color;
+    }
+
+    .experience-item {
+      & + .experience-item {
+        margin-top: 12px;
+      }
+    }
+
+    .experience-item-content {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--resume-preview-theme-color);
+        left: 1px;
+        transform: translate(-50%, 50%);
+      }
+
+      .period {
+        font-weight: bold;
+        color: var(--resume-preview-theme-color);
+      }
+
+      .company {
+        font-weight: bold;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .skill-item {
+          border: 1px solid $line-color;
+          border-radius: 20px;
+          color: $line-color;
+          margin-right: 8px;
+          padding: 0 8px;
+          font-size: 12px;
+        }
+      }
+
+      .job-description {
+        white-space: pre-line;
+      }
     }
   }
 }

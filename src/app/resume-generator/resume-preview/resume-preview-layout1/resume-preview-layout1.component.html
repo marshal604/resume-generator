@@ -1,7 +1,7 @@
 <div class="resume-preview">
   <div class="about-me block">
     <div class="job-info">
-      <yur-resume-preview-layout1-title [title]="data.jobTitle" [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-code' }">
+      <yur-resume-preview-layout1-title [title]="data.jobTitle" [icon]="{ fontSet: 'fab', fontIcon: 'fa-css3-alt' }">
       </yur-resume-preview-layout1-title>
       <div class="pl-36">
         <b class="chinese-name">{{ data.chineseName }}</b>
@@ -14,7 +14,7 @@
         <b class="age">{{ data.age }}</b>
       </div>
     </div>
-    <ul class="link-info">
+    <ul class="link-info ml-28">
       <li class="link-item">
         <mat-icon fontSet="fas" fontIcon="fa-home"></mat-icon>
         <a [href]="data.blog" class="link">{{ data.blog }}</a>
@@ -37,18 +37,47 @@
       </li>
     </ul>
   </div>
-  <div class="block">
-    <div class="profile">
-      <div class="title"></div>
-      <div class="profile-content"></div>
+  <div class="resume-preview-content pl-32 pr-32">
+    <div class="personal-profile mt-32">
+      <div class="profile">
+        <yur-resume-preview-layout1-title title="個人簡歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-contract' }">
+        </yur-resume-preview-layout1-title>
+        <div class="profile-content pl-36">
+          {{ data.profile }}
+        </div>
+      </div>
+      <div class="education ml-24">
+        <yur-resume-preview-layout1-title title="學歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }">
+        </yur-resume-preview-layout1-title>
+        <ul class="education-list pl-36">
+          <li class="education-item" *ngFor="let item of data?.education">
+            <mat-icon fontSet="fas" fontIcon="fa-school"></mat-icon>
+            <div class="education-item-content">
+              <div class="school">{{ item.school }}</div>
+              <div class="period">{{ item.period }}</div>
+              <div class="department">{{ item.department }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="education">
-      <div class="title"></div>
-      <div class="education-content"></div>
+    <div class="experience block">
+      <yur-resume-preview-layout1-title title="工作經歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-street-view' }">
+      </yur-resume-preview-layout1-title>
+      <ul class="experience-list ml-20 pt-16">
+        <li class="experience-item ml-16" *ngFor="let item of data?.experience">
+          <div class="experience-item-content">
+            <div class="period">{{ item.period }}</div>
+            <div class="company">{{ item.company }} - {{ item.jobTitle }}</div>
+            <div class="skill-list mt-8 mb-8">
+              <span class="skill-item" *ngFor="let skill of item.skillTags">
+                {{ skill }}
+              </span>
+            </div>
+            <div class="job-description">{{ item.jobDescription }}</div>
+          </div>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="experience block">
-    <div class="title"></div>
-    <div class="experience-content"></div>
   </div>
 </div>
