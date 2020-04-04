@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -12,6 +12,7 @@ import { ResumeEditFormData } from './resume-edit.component.model';
   styleUrls: ['./resume-edit.component.scss']
 })
 export class ResumeEditComponent implements OnInit, OnDestroy {
+  @Output() valueChange = new EventEmitter<ResumeEditFormData>();
   @ViewChild('downloadRef') downloadRef: ElementRef<HTMLElement>;
   form: FormGroup;
   subscription: Subscription;
@@ -24,7 +25,7 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
     this.subscribeFilePathFromUrl();
     this.subscription.add(
       this.form.valueChanges.subscribe((val: ResumeEditFormData) => {
-        console.log(val);
+        this.valueChange.emit(val);
       })
     );
   }
