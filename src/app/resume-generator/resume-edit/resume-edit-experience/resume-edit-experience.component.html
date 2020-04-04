@@ -1,7 +1,7 @@
 <h3 class="experience-title">
   Experience
   <span>
-    <button mat-icon-button>
+    <button mat-icon-button matTooltip="Add field">
       <mat-icon fontSet="fas" fontIcon="fa-plus" (click)="onAddExperience()"></mat-icon>
     </button>
   </span>
@@ -12,7 +12,7 @@
       <h4 class="experience-group-title">
         {{ groupIndex + 1 }}.
         <span>
-          <button mat-icon-button>
+          <button mat-icon-button matTooltip="Remove field">
             <mat-icon fontSet="fas" fontIcon="fa-trash" (click)="onRemoveExperience(groupIndex)"></mat-icon>
           </button>
         </span>
