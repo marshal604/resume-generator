@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '@shared/shared.module';
 import { ResumeGeneratorComponent } from './resume-generator.component';
@@ -11,7 +12,7 @@ import { ResumeEditEducationComponent } from './resume-edit/resume-edit-educatio
 import { ResumeEditExperienceComponent } from './resume-edit/resume-edit-experience/resume-edit-experience.component';
 
 @NgModule({
-  imports: [SharedModule, ResumeGeneratorRoutingModule],
+  imports: [SharedModule, ResumeGeneratorRoutingModule, HttpClientModule],
   declarations: [
     ResumeGeneratorComponent,
     ResumePreviewComponent,

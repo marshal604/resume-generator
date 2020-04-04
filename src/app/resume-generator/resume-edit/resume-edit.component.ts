@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 import { Subscription } from 'rxjs';
 
 import { ResumeEditFormData } from './resume-edit.component.model';
@@ -16,12 +16,12 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
   form: FormGroup;
   subscription: Subscription;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
     this.subscription = new Subscription();
     this.initForm();
-
+    this.subscribeFilePathFromUrl();
     this.subscription.add(
       this.form.valueChanges.subscribe((val: ResumeEditFormData) => {
         console.log(val);
@@ -69,5 +69,21 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
     };
 
     reader.readAsText(file);
+  }
+
+  subscribeFilePathFromUrl() {
+    const filePath = this.route.snapshot.queryParams.path;
+    if (!filePath) {
+      return;
+    }
+    this.subscription.add(
+      this.http.get(`assets/resume-edit/${filePath}`).subscribe(data => {
+        try {
+          this.form.setValue(data);
+        } catch (error) {
+          alert('content format incorrect');
+        }
+      })
+    );
   }
 }
