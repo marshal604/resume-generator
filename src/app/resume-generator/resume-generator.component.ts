@@ -34,7 +34,10 @@ export class ResumeGeneratorComponent implements OnInit {
       /* education */
       education: data.education.education || [],
       /* experience */
-      experience: data.experience.experience || []
+      experience: (data.experience.experience || []).map(item => ({
+        ...item,
+        skillTags: item.skillTags ? item.skillTags.split(',') : []
+      }))
     };
   }
 }

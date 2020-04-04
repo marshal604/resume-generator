@@ -23,7 +23,7 @@ export interface ResumePreviewData {
     period: string;
     company: string;
     jobTitle: string;
-    skillTags: string;
+    skillTags: string[];
     jobDescription: string;
   }[];
 }
