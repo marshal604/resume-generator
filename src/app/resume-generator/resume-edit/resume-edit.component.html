@@ -1,7 +1,7 @@
 <div class="resume-edit-tool">
   <button class="resume-edit-tool-upload-btn" matTooltip="upload file" mat-icon-button>
     <mat-icon fontSet="fas" fontIcon="fa-file-upload"></mat-icon>
-    <input type="file" accept=".txt,.json" (change)="onUploadFile($event)" />
+    <input class="caret-white" type="file" accept=".txt,.json" (change)="onUploadFile($event)" />
   </button>
   <button matTooltip="download file" mat-icon-button (click)="onDownloadFile()">
     <mat-icon fontSet="fas" fontIcon="fa-file-download"></mat-icon>
