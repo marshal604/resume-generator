@@ -35,6 +35,7 @@
       <mat-form-field class="mt-8" appearance="outline">
         <mat-label>Job Skill</mat-label>
         <textarea
+          class="caret-white"
           rows="10"
           matInput
           [formControlName]="formArrayProp.SkillTags"
@@ -45,7 +46,7 @@
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
         <mat-label>Job Description</mat-label>
-        <textarea rows="10" matInput [formControlName]="formArrayProp.JobDescription"> </textarea>
+        <textarea class="caret-white" rows="10" matInput [formControlName]="formArrayProp.JobDescription"> </textarea>
         <mat-hint>write your job description</mat-hint>
       </mat-form-field>
     </ng-container>

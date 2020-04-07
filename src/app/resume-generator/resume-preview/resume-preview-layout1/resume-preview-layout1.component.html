@@ -69,8 +69,8 @@
           <div class="experience-item-content">
             <div class="period">{{ item.period }}</div>
             <div class="company">{{ item.company }} - {{ item.jobTitle }}</div>
-            <div class="skill-list mt-8 mb-8">
-              <span class="skill-item" *ngFor="let skill of item.skillTags">
+            <div class="skill-list">
+              <span class="skill-item mt-8 mb-8" *ngFor="let skill of item.skillTags">
                 {{ skill }}
               </span>
             </div>
