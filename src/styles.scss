@@ -16,3 +16,18 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  yur-resume-preview {
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .router-container {
+    height: auto !important;
+  }
+}

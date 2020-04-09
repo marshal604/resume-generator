@@ -10,7 +10,8 @@ yur-resume-edit {
 }
 
 yur-resume-preview {
-  min-width: 860px;
+  min-width: 595px;
+  width: 100%;
   max-height: 100vh;
   overflow: auto;
 }
@@ -19,4 +20,15 @@ yur-resume-preview {
   flex-shrink: 0;
   flex-basis: 8px;
   box-shadow: 4px 0 4px #ddd;
+}
+
+@media print {
+  yur-resume-edit,
+  div.separate-line {
+    display: none;
+  }
+
+  yur-resume-preview {
+    max-height: inherit !important;
+  }
 }
