@@ -53,6 +53,10 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
     this.loadComponent(event.value);
   }
 
+  onPrintPdf() {
+    window.print();
+  }
+
   loadComponent(template: ResumePreviewTemplate) {
     if (!this.templateContainerRef || !this.data) {
       return;

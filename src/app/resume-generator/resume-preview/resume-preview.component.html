@@ -9,10 +9,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <!-- <button matTooltip="download file" mat-icon-button (click)="onDownloadFile()">
-    <mat-icon fontSet="fas" fontIcon="fa-file-download"></mat-icon>
-    <a [style.display]="'none'" #downloadRef></a>
-  </button> -->
+  <button class="print-btn" matTooltip="print pdf" mat-icon-button (click)="onPrintPdf()">
+    <mat-icon>local_printshop</mat-icon>
+  </button>
 </div>
 <div class="layout-preview">
   <ng-container #templateContainer></ng-container>
