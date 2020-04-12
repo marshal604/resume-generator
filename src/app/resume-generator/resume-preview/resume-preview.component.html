@@ -1,3 +1,19 @@
-<div class="layout-preview" *ngIf="data">
-  <yur-resume-preview-layout1 [data]="data"></yur-resume-preview-layout1>
+<div class="layout-toolbar">
+  <mat-form-field matTooltip="select layout" class="layout-select-form-field icon-select-field">
+    <mat-select [formControl]="templateCtrl" (selectionChange)="onSelectionChange($event)">
+      <mat-select-trigger>
+        <mat-icon>style</mat-icon>
+      </mat-select-trigger>
+      <mat-option *ngFor="let template of templateOption" [value]="template.id">
+        {{ template.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- <button matTooltip="download file" mat-icon-button (click)="onDownloadFile()">
+    <mat-icon fontSet="fas" fontIcon="fa-file-download"></mat-icon>
+    <a [style.display]="'none'" #downloadRef></a>
+  </button> -->
+</div>
+<div class="layout-preview">
+  <ng-container #templateContainer></ng-container>
 </div>

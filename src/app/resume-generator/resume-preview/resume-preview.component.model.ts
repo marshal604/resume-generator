@@ -27,3 +27,7 @@ export interface ResumePreviewData {
     jobDescription: string;
   }[];
 }
+
+export enum ResumePreviewTemplate {
+  Layout1 = 1
+}
