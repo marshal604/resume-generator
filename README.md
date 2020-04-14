@@ -1,23 +1,21 @@
 # ResumeGenerator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+## Overview
 
-## Development server
+之前有自己在 Word 做履歷，但是版面都要調整有點麻煩，因此想要做個自己的客製化的履歷，目前的樣式只有一個，後續如果有想到喜歡或是看到不錯的模板，都會在添加進來。
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+另外，[CakeResume](<[Cakeresume.com](https://www.cakeresume.com/dashboard)>)本身就是很棒的履歷建構網站囉。
 
-## Code scaffolding
+## Feature
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 客製化履歷
+- 可上傳檔案
+- 可下載檔案
+- 支援在 Chrome 上列印履歷為 PDF
 
-## Build
+## 3th-Party
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- `Angular`
+- `Jest`
+- `cropperjs`
+- `@fortawesome/fontawesome-free`
