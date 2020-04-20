@@ -2,7 +2,7 @@
 
 ## DEMO
 
-[Resume Generator Demo](https://marshal604.github.io/resume-generator/dist)
+[Resume Generator Demo](https://marshal604.github.io/resume-generator/dist/#/resume/generator?path=sample.txt)
 
 ## Overview
 
