@@ -62,7 +62,6 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
       return;
     }
 
-    console.log('load');
     this.templateContainerRef.clear();
 
     switch (template) {
