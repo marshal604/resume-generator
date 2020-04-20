@@ -1,37 +1,37 @@
 <div class="resume-preview">
   <div class="about-me block">
     <div class="job-info">
-      <yur-resume-preview-layout1-title [title]="data.jobTitle" [icon]="{ fontSet: 'fab', fontIcon: 'fa-css3-alt' }">
+      <yur-resume-preview-layout1-title *ngIf="data.jobTitle" [title]="data.jobTitle" [icon]="{ fontSet: 'fab', fontIcon: 'fa-css3-alt' }">
       </yur-resume-preview-layout1-title>
-      <div class="pl-36">
+      <div class="pl-36" *ngIf="data.chineseName || data.englishName">
         <b class="chinese-name">{{ data.chineseName }}</b>
         <b class="english-name ml-8">{{ data.englishName }}</b>
       </div>
     </div>
-    <div class="photo-info">
+    <div class="photo-info" *ngIf="data.photo">
       <div class="img">
         <img [src]="data.photo" alt="photo" />
         <b class="age">{{ data.age }}</b>
       </div>
     </div>
     <ul class="link-info ml-28">
-      <li class="link-item">
+      <li class="link-item" *ngIf="data.blog">
         <mat-icon fontSet="fas" fontIcon="fa-home"></mat-icon>
         <a [href]="data.blog" class="link">{{ data.blog }}</a>
       </li>
-      <li class="link-item">
+      <li class="link-item" *ngIf="data.email">
         <mat-icon fontSet="fas" fontIcon="fa-envelope-square"></mat-icon>
         <a [href]="data.email" class="link">{{ data.email }}</a>
       </li>
-      <li class="link-item">
+      <li class="link-item" *ngIf="data.phone">
         <mat-icon fontSet="fas" fontIcon="fa-phone-square-alt"></mat-icon>
         <span class="link">{{ data.phone }}</span>
       </li>
-      <li class="link-item">
+      <li class="link-item" *ngIf="data.github">
         <mat-icon fontSet="fab" fontIcon="fa-github"></mat-icon>
         <a [href]="data.github" class="link">{{ data.github }}</a>
       </li>
-      <li class="link-item">
+      <li class="link-item" *ngIf="data.codePen">
         <mat-icon fontSet="fab" fontIcon="fa-codepen"></mat-icon>
         <a [href]="data.codePen" class="link">{{ data.codePen }}</a>
       </li>
@@ -39,14 +39,14 @@
   </div>
   <div class="resume-preview-content pl-32 pr-32">
     <div class="personal-profile mt-32">
-      <div class="profile">
+      <div class="profile" *ngIf="data.profile">
         <yur-resume-preview-layout1-title title="個人簡歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-contract' }">
         </yur-resume-preview-layout1-title>
         <div class="profile-content pl-36">
           {{ data.profile }}
         </div>
       </div>
-      <div class="education ml-24">
+      <div class="education" *ngIf="data.education.length !== 0">
         <yur-resume-preview-layout1-title title="學歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }">
         </yur-resume-preview-layout1-title>
         <ul class="education-list pl-36">
@@ -61,7 +61,7 @@
         </ul>
       </div>
     </div>
-    <div class="experience block">
+    <div class="experience block" *ngIf="data.experience.length !== 0">
       <yur-resume-preview-layout1-title title="工作經歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-street-view' }">
       </yur-resume-preview-layout1-title>
       <ul class="experience-list ml-20 pt-16">

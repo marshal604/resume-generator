@@ -72,6 +72,10 @@ $about-me-height: 200px;
   .profile {
     flex: 3;
 
+    + .education {
+      margin-left: 24px;
+    }
+
     .profile-content {
       white-space: pre-line;
     }
