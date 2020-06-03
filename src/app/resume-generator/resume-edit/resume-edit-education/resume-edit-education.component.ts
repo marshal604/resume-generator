@@ -54,7 +54,7 @@ export class ResumeEditEducationComponent extends CvaBase<ResumeEditEducationFor
   }
 
   onAddEducation() {
-    (this.form.get(ResumeEditEducationFormProperties.Education) as FormArray).push(this.educationFormArrayItem);
+    (this.form.get(ResumeEditEducationFormProperties.Education) as FormArray).insert(0, this.educationFormArrayItem);
   }
 
   onRemoveEducation(index: number) {
