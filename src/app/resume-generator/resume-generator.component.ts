@@ -7,7 +7,7 @@ import { ResumePreviewData } from './resume-preview/resume-preview.component.mod
 @Component({
   selector: 'yur-resume-generator',
   templateUrl: './resume-generator.component.html',
-  styleUrls: ['./resume-generator.component.scss']
+  styleUrls: ['./resume-generator.component.scss', './resume-generator.component.print.scss']
 })
 export class ResumeGeneratorComponent implements OnInit {
   previewData: ResumePreviewData;
@@ -37,7 +37,9 @@ export class ResumeGeneratorComponent implements OnInit {
       experience: (data.experience.experience || []).map(item => ({
         ...item,
         skillTags: item.skillTags ? item.skillTags.split(',') : []
-      }))
+      })),
+      /* portfolio */
+      portfolio: data.portfolio.portfolio || []
     };
   }
 }

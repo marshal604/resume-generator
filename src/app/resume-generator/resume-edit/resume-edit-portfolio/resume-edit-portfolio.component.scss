@@ -1,0 +1,43 @@
+.portfolio-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 8px;
+
+  mat-form-field {
+    display: block;
+  }
+
+  .portfolio-group-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .portfolio-photo-count {
+    display: flex;
+    align-items: center;
+  }
+
+  .portfolio-photo {
+    display: flex;
+
+    .portfolio-photo-item {
+      flex: 1;
+      height: 250px;
+
+      & + * {
+        margin-left: 8px;
+      }
+
+      yur-upload-image {
+        height: 100%;
+      }
+    }
+  }
+}

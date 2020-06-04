@@ -56,7 +56,7 @@ export class ResumeEditExperienceComponent extends CvaBase<ResumeEditExperienceF
   }
 
   onAddExperience() {
-    (this.form.get(ResumeEditExperienceFormProperties.Experience) as FormArray).push(this.experienceFormArrayItem);
+    (this.form.get(ResumeEditExperienceFormProperties.Experience) as FormArray).insert(0, this.experienceFormArrayItem);
   }
 
   onRemoveExperience(index: number) {

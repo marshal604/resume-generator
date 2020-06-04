@@ -79,5 +79,21 @@
         </li>
       </ul>
     </div>
+    <div class="portfolio mt-32" *ngIf="data.portfolio.length !== 0">
+      <yur-resume-preview-layout1-title title="作品集" [icon]="{ fontSet: 'fas', fontIcon: 'fa-pencil-ruler' }">
+      </yur-resume-preview-layout1-title>
+      <ul class="portfolio-list pl-36">
+        <li class="portfolio-item" *ngFor="let item of data?.portfolio">
+          <div class="portfolio-item-content">
+            <div class="portfolio-item-photos">
+              <div class="portfolio-item-photo" *ngFor="let photo of item.photos">
+                <img [src]="photo" alt="portfolio photo" />
+              </div>
+            </div>
+            <div class="portfolio-description ml-16">{{ item.description }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

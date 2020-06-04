@@ -176,3 +176,129 @@ $about-me-height: 200px;
     }
   }
 }
+
+.experience {
+  .experience-list {
+    position: relative;
+    $line-color: rgb(51, 50, 50);
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      background: $line-color;
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      content: '▴';
+      position: absolute;
+      top: 0;
+      left: 1px;
+      font-size: 24px;
+      height: 0;
+      width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $line-color;
+    }
+
+    .experience-item {
+      & + .experience-item {
+        margin-top: 12px;
+      }
+    }
+
+    .experience-item-content {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--resume-preview-theme-color);
+        left: 1px;
+        transform: translate(-50%, 50%);
+      }
+
+      .period {
+        font-weight: bold;
+        color: var(--resume-preview-theme-color);
+      }
+
+      .company {
+        font-weight: bold;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .skill-item {
+          border: 1px solid $line-color;
+          border-radius: 20px;
+          color: $line-color;
+          margin-right: 8px;
+          padding: 0 8px;
+          font-size: 12px;
+        }
+      }
+
+      .job-description {
+        white-space: pre-line;
+      }
+    }
+  }
+}
+
+.portfolio {
+  .portfolio-item {
+    display: flex;
+    height: 250px;
+
+    & + .portfolio-item {
+      margin-top: 32px;
+    }
+
+    .mat-icon {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .portfolio-item-content {
+    display: flex;
+    flex: 1;
+
+    .portfolio-item-photos {
+      display: flex;
+      flex: 1;
+
+      > * + * {
+        margin-left: 8px;
+      }
+
+      .portfolio-item-photo {
+        flex: 1;
+
+        img {
+          height: 100%;
+          min-width: 145px;
+          max-width: 100%;
+          border: 1px solid;
+          object-fit: fill;
+        }
+      }
+    }
+
+    .portfolio-description {
+      flex: 1;
+      max-width: 50%;
+      white-space: pre-wrap;
+    }
+  }
+}
