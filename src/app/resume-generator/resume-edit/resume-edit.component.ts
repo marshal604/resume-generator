@@ -38,7 +38,8 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
       aboutMe: this.fb.control(''),
       profile: this.fb.control(''),
       education: this.fb.control(''),
-      experience: this.fb.control('')
+      experience: this.fb.control(''),
+      portfolio: this.fb.control('')
     });
   }
 
@@ -91,34 +92,41 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
     let jsonData: ResumeEditFormData = JSON.parse(text);
     jsonData = {
       aboutMe: {
-        jobTitle: jsonData.aboutMe.jobTitle,
-        chineseName: jsonData.aboutMe.chineseName,
-        englishName: jsonData.aboutMe.englishName,
-        photo: jsonData.aboutMe.photo,
-        age: jsonData.aboutMe.age,
-        blog: jsonData.aboutMe.blog,
-        email: jsonData.aboutMe.email,
-        phone: jsonData.aboutMe.phone,
-        github: jsonData.aboutMe.github,
-        codePen: jsonData.aboutMe.codePen
+        jobTitle: jsonData?.aboutMe?.jobTitle || '',
+        chineseName: jsonData?.aboutMe?.chineseName || '',
+        englishName: jsonData?.aboutMe?.englishName || '',
+        photo: jsonData?.aboutMe?.photo || '',
+        age: jsonData?.aboutMe?.age || '',
+        blog: jsonData?.aboutMe?.blog || '',
+        email: jsonData?.aboutMe?.email || '',
+        phone: jsonData?.aboutMe?.phone || '',
+        github: jsonData?.aboutMe?.github || '',
+        codePen: jsonData?.aboutMe?.codePen || ''
       },
       education: {
-        education: (jsonData.education.education || []).map(item => ({
-          school: item.school,
-          department: item.department,
-          period: item.period
+        education: (jsonData?.education?.education || []).map(item => ({
+          school: item?.school,
+          department: item?.department,
+          period: item?.period
         }))
       },
       profile: {
-        profile: jsonData.profile.profile
+        profile: jsonData?.profile?.profile || ''
       },
       experience: {
-        experience: (jsonData.experience.experience || []).map(item => ({
-          period: item.period,
-          company: item.company,
-          jobTitle: item.jobTitle,
-          skillTags: item.skillTags,
-          jobDescription: item.jobDescription
+        experience: (jsonData?.experience?.experience || []).map(item => ({
+          period: item?.period,
+          company: item?.company,
+          jobTitle: item?.jobTitle,
+          skillTags: item?.skillTags,
+          jobDescription: item?.jobDescription
+        }))
+      },
+      portfolio: {
+        portfolio: (jsonData?.portfolio?.portfolio || []).map(item => ({
+          photoCount: item?.photoCount,
+          photos: item?.photos,
+          description: item?.description
         }))
       }
     };

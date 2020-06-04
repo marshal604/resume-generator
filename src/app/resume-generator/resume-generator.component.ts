@@ -37,7 +37,9 @@ export class ResumeGeneratorComponent implements OnInit {
       experience: (data.experience.experience || []).map(item => ({
         ...item,
         skillTags: item.skillTags ? item.skillTags.split(',') : []
-      }))
+      })),
+      /* portfolio */
+      portfolio: data.portfolio.portfolio || []
     };
   }
 }
