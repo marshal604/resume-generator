@@ -302,9 +302,3 @@ $about-me-height: 200px;
     }
   }
 }
-
-@media print {
-  .portfolio-item {
-    page-break-inside: avoid;
-  }
-}

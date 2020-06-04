@@ -22,14 +22,3 @@ yur-resume-preview {
   flex-basis: 8px;
   box-shadow: 4px 0 4px #ddd;
 }
-
-@media print {
-  yur-resume-edit,
-  div.separate-line {
-    display: none;
-  }
-
-  yur-resume-preview {
-    max-height: inherit !important;
-  }
-}

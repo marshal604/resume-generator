@@ -6,6 +6,7 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
+@import './styles.print.scss';
 
 html,
 body {
@@ -15,35 +16,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
-
-@media print {
-  @page {
-    size: A4 portrait;
-    margin: 0;
-    margin-top: 1.25cm;
-    margin-bottom: 1.25cm;
-  }
-
-  @page :first {
-    margin-top: 0;
-  }
-
-  yur-resume-edit,
-  div.separate-line {
-    display: none;
-  }
-
-  yur-resume-preview {
-    max-height: inherit !important;
-    -webkit-print-color-adjust: exact !important;
-
-    & > .layout-toolbar {
-      display: none !important;
-    }
-  }
-
-  .router-container {
-    height: auto !important;
-  }
 }
