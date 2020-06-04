@@ -26,6 +26,12 @@ export interface ResumePreviewData {
     skillTags: string[];
     jobDescription: string;
   }[];
+  /* portfolio */
+  portfolio: {
+    photoCount: number;
+    photos: string[];
+    description: string;
+  }[];
 }
 
 export enum ResumePreviewTemplate {
