@@ -5133,7 +5133,7 @@ function _defineProperty(obj, key, value) {
             [1, 'portfolio-item-content'],
             [1, 'portfolio-item-photos'],
             ['class', 'portfolio-item-photo', 4, 'ngFor', 'ngForOf'],
-            [1, 'portfolio-description', 'ml-16'],
+            [1, 'portfolio-description', 'ml-32'],
             [1, 'portfolio-item-photo'],
             ['alt', 'portfolio photo', 3, 'src']
           ],
