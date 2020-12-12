@@ -13,6 +13,8 @@ import { ResumeEditExperienceComponent } from './resume-edit/resume-edit-experie
 import { ResumePreviewLayout1Component } from './resume-preview/resume-preview-layout1/resume-preview-layout1.component';
 import { ResumePreviewLayout1TitleComponent } from './resume-preview/resume-preview-layout1/resume-preview-layout1-title/resume-preview-layout1-title.component';
 import { ResumeEditPortfolioComponent } from './resume-edit/resume-edit-portfolio/resume-edit-portfolio.component';
+import { ResumePreviewLayout2Component } from './resume-preview/resume-preview-layout2/resume-preview-layout2.component';
+import { ResumePreviewLayout2TitleComponent } from './resume-preview/resume-preview-layout2/resume-preview-layout2-title/resume-preview-layout2-title.component';
 
 @NgModule({
   imports: [SharedModule, ResumeGeneratorRoutingModule, HttpClientModule],
@@ -26,7 +28,9 @@ import { ResumeEditPortfolioComponent } from './resume-edit/resume-edit-portfoli
     ResumeEditExperienceComponent,
     ResumeEditPortfolioComponent,
     ResumePreviewLayout1Component,
-    ResumePreviewLayout1TitleComponent
+    ResumePreviewLayout1TitleComponent,
+    ResumePreviewLayout2Component,
+    ResumePreviewLayout2TitleComponent
   ]
 })
 export class ResumeGeneratorModule {}
