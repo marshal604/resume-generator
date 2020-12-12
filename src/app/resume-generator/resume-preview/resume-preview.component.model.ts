@@ -35,5 +35,6 @@ export interface ResumePreviewData {
 }
 
 export enum ResumePreviewTemplate {
-  Layout1 = 1
+  Layout1 = 1,
+  Layout2 = 2
 }

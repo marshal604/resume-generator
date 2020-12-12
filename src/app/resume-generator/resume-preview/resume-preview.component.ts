@@ -13,9 +13,8 @@ import {
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 
-import { ResumePreviewData, ResumePreviewTemplate } from './resume-preview.component.model';
-
 import { OptionItem } from '@shared/model/option.model';
+import { ResumePreviewData, ResumePreviewTemplate } from './resume-preview.component.model';
 
 @Component({
   selector: 'yur-resume-preview',
@@ -68,6 +67,9 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
       case ResumePreviewTemplate.Layout1:
         this.loadLayout1Component();
         break;
+      case ResumePreviewTemplate.Layout2:
+        this.loadLayout2Component();
+        break;
     }
   }
 
@@ -79,11 +81,23 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
     instance.data = this.data;
   }
 
+  async loadLayout2Component() {
+    const { ResumePreviewLayout2Component } = await import('./resume-preview-layout2/resume-preview-layout2.component');
+    const templateFactory = this.cfr.resolveComponentFactory(ResumePreviewLayout2Component);
+
+    const { instance } = this.templateContainerRef.createComponent(templateFactory, null);
+    instance.data = this.data;
+  }
+
   private initTemplateOption() {
     this.templateOption = [
       {
         id: ResumePreviewTemplate.Layout1,
         name: 'Layout 1'
+      },
+      {
+        id: ResumePreviewTemplate.Layout2,
+        name: 'Layout 2'
       }
     ];
   }

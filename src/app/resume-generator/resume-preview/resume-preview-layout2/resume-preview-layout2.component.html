@@ -1,0 +1,93 @@
+<div class="resume-preview">
+  <div class="about-me block">
+    <div class="job-info">
+      <yur-resume-preview-layout2-title *ngIf="data.jobTitle" [title]="data.jobTitle" [icon]="{ fontSet: 'fab', fontIcon: 'fa-css3-alt' }">
+      </yur-resume-preview-layout2-title>
+      <div class="pl-36" *ngIf="data.chineseName || data.englishName">
+        <b class="chinese-name">{{ data.chineseName }}</b>
+        <b class="english-name ml-8">{{ data.englishName }}</b>
+      </div>
+    </div>
+    <ul class="link-info ml-28">
+      <li class="link-item" *ngIf="data.github">
+        <mat-icon fontSet="fab" fontIcon="fa-github"></mat-icon>
+        <a [href]="data.github" class="link">{{ data.github }}</a>
+      </li>
+      <li class="link-item" *ngIf="data.blog">
+        <mat-icon fontSet="fas" fontIcon="fa-home"></mat-icon>
+        <a [href]="data.blog" class="link">{{ data.blog }}</a>
+      </li>
+      <li class="link-item" *ngIf="data.email">
+        <mat-icon fontSet="fas" fontIcon="fa-envelope-square"></mat-icon>
+        <a [href]="data.email" class="link">{{ data.email }}</a>
+      </li>
+      <li class="link-item" *ngIf="data.phone">
+        <mat-icon fontSet="fas" fontIcon="fa-phone-square-alt"></mat-icon>
+        <span class="link">{{ data.phone }}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="resume-preview-content pl-32 pr-32">
+    <div class="personal-profile mt-32">
+      <div class="profile" *ngIf="data.profile">
+        <yur-resume-preview-layout2-title title="Profile" [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-contract' }">
+        </yur-resume-preview-layout2-title>
+        <div class="profile-content pl-36">
+          {{ data.profile }}
+        </div>
+      </div>
+      <div class="education" *ngIf="data.education.length !== 0">
+        <yur-resume-preview-layout2-title title="Education" [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }">
+        </yur-resume-preview-layout2-title>
+        <ul class="education-list pl-36">
+          <li class="education-item" *ngFor="let item of data?.education">
+            <mat-icon fontSet="fas" fontIcon="fa-school"></mat-icon>
+            <div class="education-item-content">
+              <div class="school">{{ item.school }}</div>
+              <div class="period">{{ item.period }}</div>
+              <div class="department">{{ item.department }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="experience block" *ngIf="data.experience.length !== 0">
+      <yur-resume-preview-layout2-title title="Work Experience" [icon]="{ fontSet: 'fas', fontIcon: 'fa-street-view' }">
+      </yur-resume-preview-layout2-title>
+      <ul class="experience-list ml-20 pt-16">
+        <li class="experience-item ml-16" *ngFor="let item of data?.experience">
+          <div class="experience-item-content">
+            <div class="period">{{ item.period }}</div>
+            <div class="company">{{ item.company }}, {{ item.jobTitle }}</div>
+            <div class="skill-list">
+              <span class="skill-item mt-8 mb-8" *ngFor="let skill of item.skillTags">
+                {{ skill }}
+              </span>
+            </div>
+            <div class="job-description">
+              <div [innerHTML]="item.jobDescription"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="portfolio mt-32" *ngIf="data.portfolio.length !== 0">
+      <yur-resume-preview-layout2-title title="Side Project" [icon]="{ fontSet: 'fas', fontIcon: 'fa-pencil-ruler' }">
+      </yur-resume-preview-layout2-title>
+      <ul class="portfolio-list pl-36">
+        <li class="portfolio-item" *ngFor="let item of data?.portfolio">
+          <div class="portfolio-item-content">
+            <div class="portfolio-item-photos">
+              <div class="portfolio-item-photo" *ngFor="let photo of item.photos">
+                <img [src]="photo" alt="portfolio photo" />
+              </div>
+            </div>
+            <div class="portfolio-description ml-32">
+              <div [innerHTML]="item.description"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
