@@ -230,15 +230,15 @@ $about-me-height: 80px;
           height: 100%;
           min-width: 100%;
           max-width: 100%;
-          border: 1px solid;
+          border: 1px solid rgba(0, 0, 0, 0.1);
           object-fit: fill;
         }
       }
     }
 
     .portfolio-description {
-      flex: 1;
-      max-width: 50%;
+      flex: 2;
+      max-width: 65%;
       white-space: pre-wrap;
     }
   }
