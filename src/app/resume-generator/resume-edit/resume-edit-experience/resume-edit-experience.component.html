@@ -22,6 +22,11 @@
         <input class="caret-white" matInput [formControlName]="formArrayProp.Period" />
         <mat-hint>{{ 'Editing.Message.WriteYourJobPeriod' | translate }}</mat-hint>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'General.Field.WorkPlace' | translate }}</mat-label>
+        <input class="caret-white" matInput [formControlName]="formArrayProp.WorkPlace" />
+        <mat-hint>{{ 'Editing.Message.WriteYourWorkPlace' | translate }}</mat-hint>
+      </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
         <mat-label>{{ 'General.Field.Company' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.Company" />
@@ -30,13 +35,13 @@
       <mat-form-field class="mt-8" appearance="outline">
         <mat-label>{{ 'General.Field.JobTitle' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.JobTitle" />
-        <mat-hint>{{ 'Editing.Message.WriteYourJobTitleInCompany' }}</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourJobTitleInCompany' | translate }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
         <mat-label>{{ 'General.Field.JobSkill' | translate }}</mat-label>
         <textarea
           class="caret-white"
-          rows="10"
+          rows="5"
           matInput
           [formControlName]="formArrayProp.SkillTags"
           [placeholder]="'Editing.Message.SeparateSkillNameByComma' | translate"

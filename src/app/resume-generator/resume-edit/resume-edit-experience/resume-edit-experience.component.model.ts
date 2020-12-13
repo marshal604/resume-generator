@@ -7,7 +7,8 @@ export enum ResumeEditExperienceFormArrayProperties {
   Company = 'company',
   JobTitle = 'jobTitle',
   SkillTags = 'skillTags',
-  JobDescription = 'jobDescription'
+  JobDescription = 'jobDescription',
+  WorkPlace = 'workPlace'
 }
 
 export interface ResumeEditExperienceFormDataItem {
@@ -16,6 +17,7 @@ export interface ResumeEditExperienceFormDataItem {
   jobTitle: string;
   skillTags: string;
   jobDescription: string;
+  workPlace: string;
 }
 
 export type ResumeEditExperienceFormData = {

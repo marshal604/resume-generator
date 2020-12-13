@@ -25,11 +25,14 @@ export interface ResumePreviewData {
     jobTitle: string;
     skillTags: string[];
     jobDescription: string;
+    workPlace: string;
   }[];
   /* portfolio */
   portfolio: {
     photoCount: number;
     photos: string[];
+    title: string;
+    skillTags: string[];
     description: string;
   }[];
 }

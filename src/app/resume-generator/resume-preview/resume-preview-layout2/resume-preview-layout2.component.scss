@@ -67,26 +67,25 @@ $about-me-height: 80px;
 .personal-profile {
   display: flex;
 
-  .profile {
-    flex: 3;
-
-    + .education {
-      margin-left: 24px;
-    }
-
-    .profile-content {
-      white-space: pre-line;
-    }
-  }
-
   .education {
-    flex: 2;
+    width: 100%;
 
     .education-item {
       display: flex;
 
+      .education-item-content {
+        flex: 1;
+      }
+
       & + .education-item {
         margin-top: 16px;
+      }
+
+      .school-period {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .mat-icon {
@@ -149,87 +148,15 @@ $about-me-height: 80px;
       .period {
         font-weight: bold;
         color: var(--resume-preview-theme-color);
-      }
-
-      .company {
-        font-weight: bold;
-      }
-
-      .skill-list {
         display: flex;
-        flex-wrap: wrap;
-
-        .skill-item {
-          border: 1px solid $line-color;
-          border-radius: 20px;
-          color: $line-color;
-          margin-right: 8px;
-          padding: 0 8px;
-          font-size: 12px;
-        }
-      }
-
-      .job-description {
-        white-space: pre-line;
-      }
-    }
-  }
-}
-
-.experience {
-  .experience-list {
-    position: relative;
-    $line-color: rgb(51, 50, 50);
-
-    &:before {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 2px;
-      background: $line-color;
-      top: 0;
-      left: 0;
-    }
-
-    &:after {
-      content: '▴';
-      position: absolute;
-      top: 0;
-      left: 1px;
-      font-size: 24px;
-      height: 0;
-      width: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: $line-color;
-    }
-
-    .experience-item {
-      & + .experience-item {
-        margin-top: 12px;
-      }
-    }
-
-    .experience-item-content {
-      &:before {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--resume-preview-theme-color);
-        left: 1px;
-        transform: translate(-50%, 50%);
-      }
-
-      .period {
-        font-weight: bold;
-        color: var(--resume-preview-theme-color);
+        align-items: center;
+        justify-content: space-between;
       }
 
       .company {
-        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .skill-list {
@@ -266,6 +193,21 @@ $about-me-height: 80px;
       font-size: 12px;
       display: flex;
       align-items: center;
+    }
+  }
+
+  .skill-list {
+    $line-color: rgb(51, 50, 50);
+    display: flex;
+    flex-wrap: wrap;
+
+    .skill-item {
+      border: 1px solid $line-color;
+      border-radius: 20px;
+      color: $line-color;
+      margin-right: 4px;
+      padding: 0 8px;
+      font-size: 11px;
     }
   }
 

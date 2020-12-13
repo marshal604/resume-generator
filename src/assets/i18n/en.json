@@ -30,7 +30,13 @@
       "UploadPhoto": "Upload Photo",
       "SelectLanguage": "Select language",
       "SelectLayout": "Select layout",
-      "PrintPdf": "Print pdf"
+      "PrintPdf": "Print pdf",
+      "Title": "Title",
+      "DownloadFile": "Download file",
+      "WorkPlace": "Work place"
+    },
+    "Message": {
+      "ContentFormatIncorrect": "Content format incorrect."
     }
   },
   "Editing": {
@@ -59,10 +65,14 @@
       "WriteYourJobTitleInCompany": "write your job title in company.",
       "SeparateSkillNameByComma": "Separate skill name by comma, e.g, Css3, Nodejs",
       "WriteYourJobSkillInCompany": "write your job skill in company.",
+      "WriteYourJobSkillInPortfolio": "write your job skill in portfolio.",
       "WriteYourJobDescription": "write your job description",
       "SelectUploadPhotoCount": "Select upload photo count",
       "WriteYourPortfolioDescription": "write your portfolio description.",
-      "WriteYourProfile": "write your profile."
+      "WriteYourProfile": "write your profile.",
+      "WriteYourTitle": "write your title",
+      "UploadSizeIsLargeThan": "Upload size is large than {{value}}",
+      "WriteYourWorkPlace": "write your work place."
     }
   }
 }

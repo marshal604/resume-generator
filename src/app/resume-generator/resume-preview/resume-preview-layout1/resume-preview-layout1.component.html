@@ -76,14 +76,28 @@
       <ul class="experience-list ml-20 pt-16">
         <li class="experience-item ml-16" *ngFor="let item of data?.experience">
           <div class="experience-item-content">
-            <div class="period">{{ item.period }}</div>
-            <div class="company">{{ item.company }} - {{ item.jobTitle }}</div>
-            <div class="skill-list">
-              <span class="skill-item mt-8 mb-8" *ngFor="let skill of item.skillTags">
+            <div class="period">
+              <div>{{ item.period }}</div>
+              <div>
+                <i>{{ item.workPlace }}</i>
+              </div>
+            </div>
+            <div class="company mb-4">
+              <div>
+                <b>{{ item.company }}</b>
+              </div>
+              <div>
+                <i>{{ item.jobTitle }}</i>
+              </div>
+            </div>
+            <div class="skill-list mb-8">
+              <span class="skill-item mt-4 mb-4" *ngFor="let skill of item.skillTags">
                 {{ skill }}
               </span>
             </div>
-            <div class="job-description">{{ item.jobDescription }}</div>
+            <div class="job-description">
+              <div [innerHTML]="item.jobDescription"></div>
+            </div>
           </div>
         </li>
       </ul>
@@ -102,7 +116,17 @@
                 <img [src]="photo" alt="portfolio photo" />
               </div>
             </div>
-            <div class="portfolio-description ml-32">{{ item.description }}</div>
+            <div class="portfolio-description ml-32">
+              <div class="mb-4">
+                <b>{{ item.title }}</b>
+              </div>
+              <div class="skill-list mb-8">
+                <small class="skill-item mt-4 mb-4" *ngFor="let skill of item.skillTags">
+                  {{ skill }}
+                </small>
+              </div>
+              <div [innerHTML]="item.description"></div>
+            </div>
           </div>
         </li>
       </ul>

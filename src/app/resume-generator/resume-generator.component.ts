@@ -17,6 +17,7 @@ export class ResumeGeneratorComponent implements OnInit {
   ngOnInit() {}
 
   onValueChange(data: ResumeEditFormData) {
+    console.log('data', data);
     this.previewData = {
       /* about me */
       jobTitle: data.aboutMe.jobTitle,
@@ -36,10 +37,16 @@ export class ResumeGeneratorComponent implements OnInit {
       /* experience */
       experience: (data.experience.experience || []).map(item => ({
         ...item,
-        skillTags: item.skillTags ? item.skillTags.split(',') : []
+        skillTags: item.skillTags ? item.skillTags.split(',').map(tag => tag.trim()) : []
       })),
       /* portfolio */
-      portfolio: data.portfolio.portfolio || []
+      portfolio:
+        (data.portfolio.portfolio || []).map(item => ({
+          ...item,
+          skillTags: item.skillTags ? item.skillTags.split(',').map(tag => tag.trim()) : []
+        })) || []
     };
+
+    console.log('this.previewData', this.previewData);
   }
 }

@@ -28,36 +28,7 @@
     </ul>
   </div>
   <div class="resume-preview-content pl-32 pr-32">
-    <div class="personal-profile mt-32">
-      <div class="profile" *ngIf="data.profile">
-        <yur-resume-preview-layout2-title
-          [title]="'General.Field.Profile' | translate"
-          [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-contract' }"
-        >
-        </yur-resume-preview-layout2-title>
-        <div class="profile-content pl-36">
-          {{ data.profile }}
-        </div>
-      </div>
-      <div class="education" *ngIf="data.education.length !== 0">
-        <yur-resume-preview-layout2-title
-          [title]="'General.Field.Education' | translate"
-          [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }"
-        >
-        </yur-resume-preview-layout2-title>
-        <ul class="education-list pl-36">
-          <li class="education-item" *ngFor="let item of data?.education">
-            <mat-icon fontSet="fas" fontIcon="fa-school"></mat-icon>
-            <div class="education-item-content">
-              <div class="school">{{ item.school }}</div>
-              <div class="period">{{ item.period }}</div>
-              <div class="department">{{ item.department }}</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="experience block" *ngIf="data.experience.length !== 0">
+    <div class="experience block mt-32" *ngIf="data.experience.length !== 0">
       <yur-resume-preview-layout2-title
         [title]="'General.Field.WorkExperience' | translate"
         [icon]="{ fontSet: 'fas', fontIcon: 'fa-street-view' }"
@@ -66,10 +37,22 @@
       <ul class="experience-list ml-20 pt-16">
         <li class="experience-item ml-16" *ngFor="let item of data?.experience">
           <div class="experience-item-content">
-            <div class="period">{{ item.period }}</div>
-            <div class="company">{{ item.company }}, {{ item.jobTitle }}</div>
-            <div class="skill-list">
-              <span class="skill-item mt-8 mb-8" *ngFor="let skill of item.skillTags">
+            <div class="period">
+              <div>{{ item.period }}</div>
+              <div>
+                <i>{{ item.workPlace }}</i>
+              </div>
+            </div>
+            <div class="company mb-4">
+              <div>
+                <b>{{ item.company }}</b>
+              </div>
+              <div>
+                <i>{{ item.jobTitle }}</i>
+              </div>
+            </div>
+            <div class="skill-list mb-8">
+              <span class="skill-item mt-4 mb-4" *ngFor="let skill of item.skillTags">
                 {{ skill }}
               </span>
             </div>
@@ -95,11 +78,40 @@
               </div>
             </div>
             <div class="portfolio-description ml-32">
+              <div class="mb-4">
+                <b>{{ item.title }}</b>
+              </div>
+              <div class="skill-list mb-8">
+                <small class="skill-item mt-4 mb-4" *ngFor="let skill of item.skillTags">
+                  {{ skill }}
+                </small>
+              </div>
               <div [innerHTML]="item.description"></div>
             </div>
           </div>
         </li>
       </ul>
+    </div>
+    <div class="personal-profile mt-32">
+      <div class="education" *ngIf="data.education.length !== 0">
+        <yur-resume-preview-layout2-title
+          [title]="'General.Field.Education' | translate"
+          [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }"
+        >
+        </yur-resume-preview-layout2-title>
+        <ul class="education-list pl-36">
+          <li class="education-item" *ngFor="let item of data?.education">
+            <mat-icon fontSet="fas" fontIcon="fa-school"></mat-icon>
+            <div class="education-item-content">
+              <div class="school-period">
+                <div class="school">{{ item.school }}</div>
+                <div class="period">{{ item.period }}</div>
+              </div>
+              <div class="department">{{ item.department }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
