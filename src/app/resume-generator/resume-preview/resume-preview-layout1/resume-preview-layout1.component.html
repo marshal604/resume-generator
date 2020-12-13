@@ -40,14 +40,20 @@
   <div class="resume-preview-content pl-32 pr-32">
     <div class="personal-profile mt-32">
       <div class="profile" *ngIf="data.profile">
-        <yur-resume-preview-layout1-title title="個人簡歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-contract' }">
+        <yur-resume-preview-layout1-title
+          [title]="'General.Field.Profile' | translate"
+          [icon]="{ fontSet: 'fas', fontIcon: 'fa-file-contract' }"
+        >
         </yur-resume-preview-layout1-title>
         <div class="profile-content pl-36">
           {{ data.profile }}
         </div>
       </div>
       <div class="education" *ngIf="data.education.length !== 0">
-        <yur-resume-preview-layout1-title title="學歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }">
+        <yur-resume-preview-layout1-title
+          [title]="'General.Field.Education' | translate"
+          [icon]="{ fontSet: 'fas', fontIcon: 'fa-graduation-cap' }"
+        >
         </yur-resume-preview-layout1-title>
         <ul class="education-list pl-36">
           <li class="education-item" *ngFor="let item of data?.education">
@@ -62,7 +68,10 @@
       </div>
     </div>
     <div class="experience block" *ngIf="data.experience.length !== 0">
-      <yur-resume-preview-layout1-title title="工作經歷" [icon]="{ fontSet: 'fas', fontIcon: 'fa-street-view' }">
+      <yur-resume-preview-layout1-title
+        [title]="'General.Field.WorkExperience' | translate"
+        [icon]="{ fontSet: 'fas', fontIcon: 'fa-street-view' }"
+      >
       </yur-resume-preview-layout1-title>
       <ul class="experience-list ml-20 pt-16">
         <li class="experience-item ml-16" *ngFor="let item of data?.experience">
@@ -80,7 +89,10 @@
       </ul>
     </div>
     <div class="portfolio mt-32" *ngIf="data.portfolio.length !== 0">
-      <yur-resume-preview-layout1-title title="作品集" [icon]="{ fontSet: 'fas', fontIcon: 'fa-pencil-ruler' }">
+      <yur-resume-preview-layout1-title
+        [title]="'General.Field.Portfolio' | translate"
+        [icon]="{ fontSet: 'fas', fontIcon: 'fa-pencil-ruler' }"
+      >
       </yur-resume-preview-layout1-title>
       <ul class="portfolio-list pl-36">
         <li class="portfolio-item" *ngFor="let item of data?.portfolio">

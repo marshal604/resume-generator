@@ -1,8 +1,8 @@
-<h3>Profile</h3>
+<h3>{{ 'General.Field.Profile' | translate }}</h3>
 <div class="profile" [formGroup]="form">
   <mat-form-field appearance="outline">
-    <mat-label>Profile</mat-label>
+    <mat-label>{{ 'General.Field.Profile' | translate }}</mat-label>
     <textarea class="caret-white" rows="10" matInput [formControlName]="formProp.Profile"></textarea>
-    <mat-hint>write your profile.</mat-hint>
+    <mat-hint>{{ 'Editing.Message.WriteYourProfile' | translate }}</mat-hint>
   </mat-form-field>
 </div>

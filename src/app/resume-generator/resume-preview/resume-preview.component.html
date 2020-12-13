@@ -1,5 +1,15 @@
 <div class="layout-toolbar">
-  <mat-form-field matTooltip="select layout" class="layout-select-form-field icon-select-field">
+  <mat-form-field [matTooltip]="'General.Field.SelectLanguage' | translate" class="layout-select-form-field icon-select-field">
+    <mat-select [formControl]="langCtrl">
+      <mat-select-trigger>
+        <mat-icon>language</mat-icon>
+      </mat-select-trigger>
+      <mat-option *ngFor="let lang of langOption" [value]="lang.id">
+        {{ lang.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field [matTooltip]="'General.Field.SelectLayout' | translate" class="layout-select-form-field icon-select-field">
     <mat-select [formControl]="templateCtrl" (selectionChange)="onSelectionChange($event)">
       <mat-select-trigger>
         <mat-icon>style</mat-icon>
@@ -9,7 +19,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button class="print-btn" matTooltip="print pdf" mat-icon-button (click)="onPrintPdf()">
+  <button class="print-btn" [matTooltip]="'General.Field.PrintPdf' | translate" mat-icon-button (click)="onPrintPdf()">
     <mat-icon>local_printshop</mat-icon>
   </button>
 </div>

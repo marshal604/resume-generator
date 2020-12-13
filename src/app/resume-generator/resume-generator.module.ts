@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { SharedModule } from '@shared/shared.module';
 import { ResumeGeneratorComponent } from './resume-generator.component';
 import { ResumePreviewComponent } from './resume-preview/resume-preview.component';
@@ -17,7 +19,7 @@ import { ResumePreviewLayout2Component } from './resume-preview/resume-preview-l
 import { ResumePreviewLayout2TitleComponent } from './resume-preview/resume-preview-layout2/resume-preview-layout2-title/resume-preview-layout2-title.component';
 
 @NgModule({
-  imports: [SharedModule, ResumeGeneratorRoutingModule, HttpClientModule],
+  imports: [SharedModule, ResumeGeneratorRoutingModule, HttpClientModule, TranslateModule],
   declarations: [
     ResumeGeneratorComponent,
     ResumePreviewComponent,

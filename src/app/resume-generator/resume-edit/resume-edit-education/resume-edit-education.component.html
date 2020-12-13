@@ -1,5 +1,5 @@
 <h3 class="education-title">
-  Education
+  {{ 'General.Field.Education' | translate }}
   <span>
     <button mat-icon-button matTooltip="Add field">
       <mat-icon fontSet="fas" fontIcon="fa-plus" (click)="onAddEducation()"></mat-icon>
@@ -18,19 +18,19 @@
         </span>
       </h4>
       <mat-form-field appearance="outline">
-        <mat-label>School</mat-label>
+        <mat-label>{{ 'General.Field.School' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.School" />
-        <mat-hint>write your school.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourSchool' | translate }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Department</mat-label>
+        <mat-label>{{ 'General.Field.Department' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.Department" />
-        <mat-hint>write your department of school.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourDepartmentOfSchool' | translate }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Period</mat-label>
+        <mat-label>{{ 'General.Field.Period' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.Period" />
-        <mat-hint>write your period from enrolled to graduation.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourPeriodFromEnrolledToGraduation' | translate }}</mat-hint>
       </mat-form-field>
     </ng-container>
   </mat-card>

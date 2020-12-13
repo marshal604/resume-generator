@@ -7,11 +7,14 @@ import {
   ComponentFactoryResolver,
   OnChanges,
   SimpleChanges,
-  AfterViewInit
+  AfterViewInit,
+  OnDestroy
 } from '@angular/core';
-
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+
+import { TranslateService } from '@ngx-translate/core';
 
 import { OptionItem } from '@shared/model/option.model';
 import { ResumePreviewData, ResumePreviewTemplate } from './resume-preview.component.model';
@@ -21,7 +24,7 @@ import { ResumePreviewData, ResumePreviewTemplate } from './resume-preview.compo
   templateUrl: './resume-preview.component.html',
   styleUrls: ['./resume-preview.component.scss']
 })
-export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges {
+export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() data: ResumePreviewData;
 
   @ViewChild('templateContainer', {
@@ -30,8 +33,12 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
   templateContainerRef: ViewContainerRef;
   templateOption: OptionItem<ResumePreviewTemplate>[];
   templateCtrl: FormControl;
+  langOption: OptionItem<string>[];
+  langCtrl: FormControl;
 
-  constructor(private cfr: ComponentFactoryResolver) {}
+  private subscription = new Subscription();
+
+  constructor(private cfr: ComponentFactoryResolver, private translateService: TranslateService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (!changes.data.isFirstChange() && changes.data.currentValue) {
@@ -41,11 +48,22 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
 
   ngOnInit() {
     this.templateCtrl = new FormControl(ResumePreviewTemplate.Layout1);
+    this.langCtrl = new FormControl('zh-TW');
+    this.subscription.add(
+      this.langCtrl.valueChanges.subscribe(lang => {
+        this.translateService.use(lang);
+      })
+    );
     this.initTemplateOption();
+    this.initLandOption();
   }
 
   ngAfterViewInit() {
     this.loadComponent(this.templateCtrl.value);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   onSelectionChange(event: MatSelectChange) {
@@ -93,11 +111,24 @@ export class ResumePreviewComponent implements OnInit, AfterViewInit, OnChanges 
     this.templateOption = [
       {
         id: ResumePreviewTemplate.Layout1,
-        name: 'Layout 1'
+        name: this.translateService.instant('General.Field.Layout1')
       },
       {
         id: ResumePreviewTemplate.Layout2,
-        name: 'Layout 2'
+        name: this.translateService.instant('General.Field.Layout2')
+      }
+    ];
+  }
+
+  private initLandOption() {
+    this.langOption = [
+      {
+        id: 'zh-TW',
+        name: this.translateService.instant('General.Field.Chinese')
+      },
+      {
+        id: 'en',
+        name: this.translateService.instant('General.Field.English')
       }
     ];
   }

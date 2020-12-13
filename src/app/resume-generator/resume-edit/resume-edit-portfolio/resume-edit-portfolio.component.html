@@ -1,5 +1,5 @@
 <h3 class="portfolio-title">
-  Portfolio
+  {{ 'General.Field.Portfolio' | translate }}
   <span>
     <button mat-icon-button matTooltip="Add field">
       <mat-icon fontSet="fas" fontIcon="fa-plus" (click)="onAddPortfolio()"></mat-icon>
@@ -12,13 +12,13 @@
       <h4 class="portfolio-group-title">
         {{ groupIndex + 1 }}.
         <span>
-          <button mat-icon-button matTooltip="Remove field">
+          <button mat-icon-button [matTooltip]="'Editing.Field.RemoveField' | translate">
             <mat-icon fontSet="fas" fontIcon="fa-trash" (click)="onRemovePortfolio(groupIndex)"></mat-icon>
           </button>
         </span>
       </h4>
       <div class="portfolio-photo-count">
-        <span>Select Upload Photo Count:</span>
+        <span>{{ 'Editing.Message.SelectUploadPhotoCount' | translate }}:</span>
         <mat-radio-group [formControlName]="formArrayProp.PhotoCount" (change)="onPhotoCountChange(item, $event)">
           <mat-radio-button class="ml-8" [value]="1">1</mat-radio-button>
           <mat-radio-button class="ml-8" [value]="2">2</mat-radio-button>
@@ -28,23 +28,16 @@
         <div class="portfolio-photo-item" *ngFor="let photo of item.get(formArrayProp.Photos).value; let photoIndex = index">
           <yur-upload-image
             [src]="photo"
-            [options]="{ defaultText: 'Upload Photo', aspectRatio: 'auto' }"
+            [options]="{ defaultText: 'General.Field.UploadPhoto' | translate, aspectRatio: 'auto' }"
             (srcChange)="onSrcChange(item, $event, photoIndex)"
           >
           </yur-upload-image>
         </div>
       </div>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Portfolio Description</mat-label>
-        <textarea
-          class="caret-white"
-          rows="10"
-          matInput
-          [formControlName]="formArrayProp.Description"
-          placeholder="Separate skill name by comma, e.g, Css3, Nodejs"
-        >
-        </textarea>
-        <mat-hint>write your portfolio description.</mat-hint>
+        <mat-label>{{ 'General.Field.PortfolioDescription' | translate }}</mat-label>
+        <textarea class="caret-white" rows="10" matInput [formControlName]="formArrayProp.Description"> </textarea>
+        <mat-hint>{{ 'Editing.Message.WriteYourPortfolioDescription' | translate }}</mat-hint>
       </mat-form-field>
     </ng-container>
   </mat-card>

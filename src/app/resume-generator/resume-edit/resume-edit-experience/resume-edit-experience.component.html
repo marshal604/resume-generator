@@ -1,7 +1,7 @@
 <h3 class="experience-title">
-  Experience
+  {{ 'General.Field.WorkExperience' | translate }}
   <span>
-    <button mat-icon-button matTooltip="Add field">
+    <button mat-icon-button [matTooltip]="'Editing.Field.AddField' | translate">
       <mat-icon fontSet="fas" fontIcon="fa-plus" (click)="onAddExperience()"></mat-icon>
     </button>
   </span>
@@ -12,42 +12,42 @@
       <h4 class="experience-group-title">
         {{ groupIndex + 1 }}.
         <span>
-          <button mat-icon-button matTooltip="Remove field">
+          <button mat-icon-button [matTooltip]="'Editing.Field.RemoveField' | translate">
             <mat-icon fontSet="fas" fontIcon="fa-trash" (click)="onRemoveExperience(groupIndex)"></mat-icon>
           </button>
         </span>
       </h4>
       <mat-form-field appearance="outline">
-        <mat-label>Job Period</mat-label>
+        <mat-label>{{ 'General.Field.JobPeriod' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.Period" />
-        <mat-hint>write your job period.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourJobPeriod' | translate }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Company</mat-label>
+        <mat-label>{{ 'General.Field.Company' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.Company" />
-        <mat-hint>write your company.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourCompany' | translate }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Job Title</mat-label>
+        <mat-label>{{ 'General.Field.JobTitle' | translate }}</mat-label>
         <input class="caret-white" matInput [formControlName]="formArrayProp.JobTitle" />
-        <mat-hint>write your job title in company.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourJobTitleInCompany' }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Job Skill</mat-label>
+        <mat-label>{{ 'General.Field.JobSkill' | translate }}</mat-label>
         <textarea
           class="caret-white"
           rows="10"
           matInput
           [formControlName]="formArrayProp.SkillTags"
-          placeholder="Separate skill name by comma, e.g, Css3, Nodejs"
+          [placeholder]="'Editing.Message.SeparateSkillNameByComma' | translate"
         >
         </textarea>
-        <mat-hint>write your job skill in company.</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourJobSkillInCompany' | translate }}</mat-hint>
       </mat-form-field>
       <mat-form-field class="mt-8" appearance="outline">
-        <mat-label>Job Description</mat-label>
+        <mat-label>{{ 'General.Field.JobDescription' | translate }}</mat-label>
         <textarea class="caret-white" rows="10" matInput [formControlName]="formArrayProp.JobDescription"> </textarea>
-        <mat-hint>write your job description</mat-hint>
+        <mat-hint>{{ 'Editing.Message.WriteYourJobDescription' | translate }}</mat-hint>
       </mat-form-field>
     </ng-container>
   </mat-card>
