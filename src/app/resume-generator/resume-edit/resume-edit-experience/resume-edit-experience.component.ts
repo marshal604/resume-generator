@@ -27,7 +27,8 @@ export class ResumeEditExperienceComponent extends CvaBase<ResumeEditExperienceF
       [ResumeEditExperienceFormArrayProperties.Company]: '',
       [ResumeEditExperienceFormArrayProperties.JobTitle]: '',
       [ResumeEditExperienceFormArrayProperties.SkillTags]: '',
-      [ResumeEditExperienceFormArrayProperties.JobDescription]: ''
+      [ResumeEditExperienceFormArrayProperties.JobDescription]: '',
+      [ResumeEditExperienceFormArrayProperties.WorkPlace]: ''
     });
   }
 

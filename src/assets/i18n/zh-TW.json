@@ -1,0 +1,78 @@
+{
+  "General": {
+    "Field": {
+      "UploadFile": "上傳檔案",
+      "AboutMe": "關於我",
+      "Blog": "部落格",
+      "Phone": "電話",
+      "Email": "信箱",
+      "GitHub": "GitHub",
+      "CodePen": "CodePen",
+      "Education": "學歷",
+      "School": "學校",
+      "Department": "系所",
+      "Period": "在學期間",
+      "JobPeriod": "在職期間",
+      "Company": "公司",
+      "JobTitle": "職稱",
+      "JobSkill": "工作技能",
+      "JobDescription": "工作內容",
+      "Portfolio": "作品集",
+      "PortfolioDescription": "作品集描述",
+      "Profile": "個人簡歷",
+      "Chinese": "中文",
+      "English": "English",
+      "Layout1": "模板一",
+      "Layout2": "模板二",
+      "WorkExperience": "工作經歷",
+      "SideProject": "個人作品",
+      "PortfolioPhoto": "作品集照片",
+      "UploadPhoto": "點擊上傳照片",
+      "SelectLanguage": "選擇語系",
+      "SelectLayout": "選擇模板",
+      "PrintPdf": "列印PDF",
+      "Title": "標題",
+      "DownloadFile": "下載檔案",
+      "WorkPlace": "工作地點"
+    },
+    "Message": {
+      "ContentFormatIncorrect": "上傳內容格式錯誤"
+    }
+  },
+  "Editing": {
+    "Field": {
+      "ChineseName": "中文名稱",
+      "EnglishName": "英文名稱",
+      "Age": "年紀",
+      "AddField": "新增欄位",
+      "RemoveField": "刪除欄位"
+    },
+    "Message": {
+      "WriteYourJobTitle": "請輸入職稱",
+      "WriteYourChineseName": "請輸入中文名字",
+      "WriteYourEnglishName": "請輸入英文名字",
+      "WriteYourAge": "請輸入年紀",
+      "WriteYourBlogLink": "請輸入部落格連結",
+      "WriteYourPhoneNumber": "請輸入電話號碼",
+      "WriteYourEmail": "請輸入信箱",
+      "WriteYourGitHub": "請輸入GitHub連結",
+      "WriteYourCodePen": "請輸入CodePen連結",
+      "WriteYourSchool": "請輸入學校",
+      "WriteYourDepartmentOfSchool": "請輸入學校系所",
+      "WriteYourPeriodFromEnrolledToGraduation": "請輸入入學到畢業的時間",
+      "WriteYourJobPeriod": "請輸入就職到離職的時間",
+      "WriteYourCompany": "請輸入公司名稱",
+      "WriteYourJobTitleInCompany": "請輸入職稱",
+      "SeparateSkillNameByComma": "將工作技能用逗號分隔，例如: Css,Nodejs",
+      "WriteYourJobSkillInCompany": "請輸入在職時使用的工作技能",
+      "WriteYourJobSkillInPortfolio": "請輸入作品集使用的工作技能",
+      "WriteYourJobDescription": "請輸入在職時所負責的工作內容",
+      "SelectUploadPhotoCount": "請選擇要上傳的照片個數",
+      "WriteYourPortfolioDescription": "請描述作品集的功能",
+      "WriteYourProfile": "請輸入個人簡歷",
+      "WriteYourTitle": "請輸入標題",
+      "UploadSizeIsLargeThan": "上傳失敗，圖片檔案超過{{value}}",
+      "WriteYourWorkPlace": "請輸入工作地點"
+    }
+  }
+}

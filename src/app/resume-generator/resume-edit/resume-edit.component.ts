@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { ResumeEditFormData } from './resume-edit.component.model';
 @Component({
   selector: 'yur-resume-edit',
@@ -16,7 +18,12 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
   form: FormGroup;
   subscription: Subscription;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     this.subscription = new Subscription();
@@ -65,7 +72,7 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
       try {
         this.updateJsonToForm(e.target.result.toString());
       } catch (error) {
-        alert('content format incorrect.');
+        alert(this.translateService.instant('General.Message.ContentFormatIncorrect'));
       }
     };
 
@@ -82,7 +89,8 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
         try {
           this.updateJsonToForm(JSON.stringify(data));
         } catch (error) {
-          alert('content format incorrect');
+          console.log('error', error);
+          alert(this.translateService.instant('General.Message.ContentFormatIncorrect'));
         }
       })
     );
@@ -105,9 +113,9 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
       },
       education: {
         education: (jsonData?.education?.education || []).map(item => ({
-          school: item?.school,
-          department: item?.department,
-          period: item?.period
+          school: item?.school || '',
+          department: item?.department || '',
+          period: item?.period || ''
         }))
       },
       profile: {
@@ -115,21 +123,25 @@ export class ResumeEditComponent implements OnInit, OnDestroy {
       },
       experience: {
         experience: (jsonData?.experience?.experience || []).map(item => ({
-          period: item?.period,
-          company: item?.company,
-          jobTitle: item?.jobTitle,
-          skillTags: item?.skillTags,
-          jobDescription: item?.jobDescription
+          period: item?.period || '',
+          company: item?.company || '',
+          jobTitle: item?.jobTitle || '',
+          skillTags: item?.skillTags || '',
+          jobDescription: item?.jobDescription || '',
+          workPlace: item?.workPlace || ''
         }))
       },
       portfolio: {
         portfolio: (jsonData?.portfolio?.portfolio || []).map(item => ({
-          photoCount: item?.photoCount,
-          photos: item?.photos,
-          description: item?.description
+          photoCount: item?.photoCount || 1,
+          photos: item?.photos || [],
+          description: item?.description || '',
+          title: item?.title || '',
+          skillTags: item?.skillTags || ''
         }))
       }
     };
+    console.log('jsonData', jsonData);
     this.form.setValue(jsonData);
   }
 }

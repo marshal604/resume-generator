@@ -26,17 +26,20 @@ export class ResumeEditPortfolioComponent extends CvaBase<ResumeEditPortfolioFor
     return this.fb.group({
       [ResumeEditPortfolioFormArrayProperties.PhotoCount]: 1,
       [ResumeEditPortfolioFormArrayProperties.Photos]: [[null]],
+      [ResumeEditPortfolioFormArrayProperties.Title]: '',
+      [ResumeEditPortfolioFormArrayProperties.SkillTags]: '',
       [ResumeEditPortfolioFormArrayProperties.Description]: ''
     });
   }
 
   onPhotoCountChange(form: FormGroup, event: MatRadioChange) {
     let sources = form.get(ResumeEditPortfolioFormArrayProperties.Photos).value;
-    if (event.value === 1 && sources.length === 2) {
-      sources = sources.slice(0, 1);
-    } else if (event.value === 2 && sources.length === 1) {
-      sources.push(null);
+    for (let i = 0; i < event.value; i++) {
+      if (sources.length < i + 1) {
+        sources.push(null);
+      }
     }
+    sources = sources.slice(0, event.value);
     form.patchValue({
       [ResumeEditPortfolioFormArrayProperties.Photos]: sources
     });

@@ -3,6 +3,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 
 import Cropper from 'cropperjs';
+import { TranslateService } from '@ngx-translate/core';
 
 import { UploadImageOptions } from './upload-image.component.model';
 @Component({
@@ -23,7 +24,7 @@ export class UploadImageComponent implements OnInit {
   previewSrc: string;
   aspectRatioList: string[];
   private cropper: Cropper;
-  constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef) {}
+  constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef, private translateService: TranslateService) {}
 
   ngOnInit() {
     this.initOverlay();
@@ -40,7 +41,7 @@ export class UploadImageComponent implements OnInit {
     }
 
     if (this.options && this.options.limitSize && file.size > this.options.limitSize) {
-      alert(`upload size is large than ${this.transformSize(this.options.limitSize)}`);
+      alert(this.translateService.instant('Editing.Message.UploadSizeIsLargeThan', { value: this.transformSize(this.options.limitSize) }));
       return;
     }
     const reader = new FileReader();
@@ -137,7 +138,7 @@ export class UploadImageComponent implements OnInit {
     const G = 1_024 * 1_024 * 1_024;
     const limitSizeDecimalPosition = this.options ? this.options.limitSizeDecimalPosition || 0 : 0;
     if (size < K) {
-      return size.toFixed(limitSizeDecimalPosition);
+      return size.toFixed(limitSizeDecimalPosition) + 'B';
     } else if (size / K < 1_000) {
       return (size / K).toFixed(limitSizeDecimalPosition) + 'KB';
     } else if (size / M < 1_000) {

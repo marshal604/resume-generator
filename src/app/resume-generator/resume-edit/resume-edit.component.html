@@ -1,9 +1,9 @@
 <div class="resume-edit-tool">
-  <button class="resume-edit-tool-upload-btn" matTooltip="upload file" mat-icon-button>
+  <button class="resume-edit-tool-upload-btn" [matTooltip]="'General.Field.UploadFile' | translate" mat-icon-button>
     <mat-icon fontSet="fas" fontIcon="fa-file-upload"></mat-icon>
     <input class="caret-white" type="file" accept=".txt,.json" (change)="onUploadFile($event)" />
   </button>
-  <button matTooltip="download file" mat-icon-button (click)="onDownloadFile()">
+  <button [matTooltip]="'General.Field.DownloadFile' | translate" mat-icon-button (click)="onDownloadFile()">
     <mat-icon fontSet="fas" fontIcon="fa-file-download"></mat-icon>
     <a [style.display]="'none'" #downloadRef></a>
   </button>

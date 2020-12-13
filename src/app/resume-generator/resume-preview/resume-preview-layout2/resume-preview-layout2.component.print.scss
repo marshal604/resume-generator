@@ -1,5 +1,6 @@
 @media print {
-  .portfolio-item {
+  .portfolio-item,
+  .personal-profile {
     page-break-inside: avoid;
   }
 }
