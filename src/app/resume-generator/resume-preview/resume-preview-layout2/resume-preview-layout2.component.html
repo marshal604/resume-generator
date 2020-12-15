@@ -3,7 +3,7 @@
     <div class="job-info">
       <yur-resume-preview-layout2-title *ngIf="data.jobTitle" [title]="data.jobTitle" [icon]="{ fontSet: 'fab', fontIcon: 'fa-css3-alt' }">
       </yur-resume-preview-layout2-title>
-      <div class="pl-36" *ngIf="data.chineseName || data.englishName">
+      <div class="pl-36 name" *ngIf="data.chineseName || data.englishName">
         <b class="chinese-name">{{ data.chineseName }}</b>
         <b class="english-name ml-8">{{ data.englishName }}</b>
       </div>
@@ -37,18 +37,20 @@
       <ul class="experience-list ml-20 pt-16">
         <li class="experience-item ml-16" *ngFor="let item of data?.experience">
           <div class="experience-item-content">
-            <div class="period">
-              <div>{{ item.period }}</div>
-              <div>
-                <i>{{ item.workPlace }}</i>
+            <div class="experience-item-content-title mb-4">
+              <div class="experience-item-content-title-primary">
+                <div class="company">
+                  <b>{{ item.company }}</b>
+                </div>
+                <div class="job-title">{{ item.jobTitle }}</div>
               </div>
-            </div>
-            <div class="company mb-4">
-              <div>
-                <b>{{ item.company }}</b>
-              </div>
-              <div>
-                <i>{{ item.jobTitle }}</i>
+              <div class="experience-item-content-title-secondary">
+                <div class="work-place">
+                  {{ item.workPlace }}
+                </div>
+                <div class="period">
+                  {{ item.period }}
+                </div>
               </div>
             </div>
             <div class="skill-list mb-8">

@@ -8,6 +8,10 @@ $about-me-height: 80px;
   align-items: flex-start;
   padding: 16px;
 
+  .name {
+    font-size: 20px;
+  }
+
   .job-info {
     display: flex;
     flex-direction: column;
@@ -145,18 +149,20 @@ $about-me-height: 80px;
         transform: translate(-50%, 50%);
       }
 
-      .period {
+      .experience-item-content-title {
         font-weight: bold;
-        color: var(--resume-preview-theme-color);
         display: flex;
         align-items: center;
         justify-content: space-between;
-      }
 
-      .company {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        .experience-item-content-title-primary {
+          font-size: 16px;
+        }
+
+        .experience-item-content-title-secondary {
+          color: var(--resume-preview-theme-color);
+          text-align: right;
+        }
       }
 
       .skill-list {
