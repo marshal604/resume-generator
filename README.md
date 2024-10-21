@@ -2,23 +2,23 @@
 
 ## DEMO
 
-[Resume Generator Demo](https://marshal604.github.io/resume-generator/dist/#/resume/generator?path=sample.txt)
+[Resume Generator Demo](https://marshal604.github.io/my-early-years-resume-generator/dist/#/resume/generator?path=sample.txt)
 
 ## Overview
 
-之前有自己在 Word 做履歷，但是版面都要調整有點麻煩，因此想要做個自己的客製化的履歷，目前的樣式只有一個，後續如果有想到喜歡或是看到不錯的模板，都會在添加進來。
+Previously, I created resumes in Word, but adjusting the layout was troublesome. Therefore, I wanted to create my own customized resume. Currently, there is only one style, but I will add more templates in the future if I come across or think of nice ones.
 
-另外，[CakeResume](<[Cakeresume.com](https://www.cakeresume.com/dashboard)>)本身就是很棒的履歷建構網站囉。
+Additionally, [CakeResume](https://www.cakeresume.com/dashboard) is already an excellent resume building website.
 
-## Feature
+## Features
 
-- 客製化履歷
-- 可上傳檔案更新履歷
-- 可下載檔案，下次要用時在更新履歷
-- 可 fork 下來，在 asset 中存放檔案，並在 route 加上?file=<filename>即可導入檔案，例如:`resume/generator?path=sample.txt`
-- 支援在 Chrome 上列印履歷為 PDF
+- Customizable resume
+- Ability to upload files to update the resume
+- Option to download files for future resume updates
+- Can be forked, with files stored in assets, and routes can be added with ?file=<filename> to import files, e.g., `resume/generator?path=sample.txt`
+- Supports printing resumes as PDF in Chrome
 
-## 3th-Party
+## 3rd-Party Libraries
 
 - `Angular`
 - `Jest`
