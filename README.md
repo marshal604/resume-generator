@@ -5,7 +5,7 @@
 - [Resume Generator Demo](https://marshal604.github.io/resume-generator/legacy/dist/#/resume/generator?path=sample.txt)
 - [Source Code](https://github.com/marshal604/resume-generator/tree/legacy)
 
-## How to run
+## How to start
 
 ```bash
 # node version: v20
