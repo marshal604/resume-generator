@@ -16,21 +16,22 @@ interface UserExperienceProps {
 const UserExperience: React.FC<UserExperienceProps> = ({ experiences }) => {
   return (
     <section>
-      <h2 style={{ textAlign: 'center' }}>Experience</h2>
+      <h3 style={{ textAlign: 'center' }}>Experience</h3>
       <hr />
       {experiences.map((exp, index) => (
         <div key={index}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div>
-              <p>{exp.title}, {exp.company}</p>
+            <div style={{ display: 'flex' }}>
+              <h4>{exp.title}</h4>
+              <p>- {exp.company}</p>
             </div>
             <div>
-              <p>{exp.start_at.toLocaleDateString()} - {exp.end_at ? exp.end_at.toLocaleDateString() : 'Present'}</p>
+              <p>{exp.start_at.getFullYear()}.{exp.start_at.getMonth() + 1} - {exp.end_at ? `${exp.end_at.getFullYear()}.${exp.end_at.getMonth() + 1}` : 'Present'}</p>
             </div>
           </div>
           <ul>
             {exp.achievements.map((ach, idx) => (
-              <li key={idx}>{ach}</li>
+              <li key={idx} style={{ paddingLeft: '8px' }}>● {ach}</li>
             ))}
           </ul>
         </div>

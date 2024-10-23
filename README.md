@@ -1,6 +1,10 @@
 # ResumeGenerator
 
 ## DEMO
+
+### React
+- [My Resume](https://marshal604.github.io/resume-generator/dist/#/resume)
+
 ### Angular - Legacy
 - [Resume Generator Demo](https://marshal604.github.io/resume-generator/legacy/dist/#/resume/generator?path=sample.txt)
 - [Source Code](https://github.com/marshal604/resume-generator/tree/legacy)
