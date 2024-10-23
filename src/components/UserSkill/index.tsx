@@ -8,8 +8,9 @@ interface UserSkillProps {
 const UserSkill: React.FC<UserSkillProps> = ({ skills }) => {
   return (
     <section>
-      <h2>Skill</h2>
-      <p>{skills.join(', ')}</p>
+      <h2 style={{ textAlign: 'center' }}>Skill</h2>
+      <hr />
+      <p style={{ textAlign: 'center' }}>{skills.join(', ')}</p>
     </section>
   );
 };

@@ -16,7 +16,8 @@ interface UserEducationProps {
 const UserEducation: React.FC<UserEducationProps> = ({ education }) => {
   return (
     <section>
-      <h2>Education</h2>
+      <h2 style={{ textAlign: 'center' }}>Education</h2>
+      <hr />
       {education.map((edu, index) => (
         <div key={index}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>

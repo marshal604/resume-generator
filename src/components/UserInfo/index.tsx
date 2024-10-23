@@ -22,10 +22,10 @@ const UserInfo: React.FC<UserInfoProps> = ({ address, email, phone, name, linked
       <div>
         <h1>{name}</h1>
       </div>
-      <div>
-        <p><a href={linkedin}>LinkedIn</a></p>
-        <p><a href={github}>GitHub</a></p>
-        <p><a href={codepen}>CodePen</a></p>
+      <div style={{ textAlign: 'right' }}>
+        <p><a href={linkedin}>{ linkedin }</a></p>
+        <p><a href={github}>{ github }</a></p>
+        <p><a href={codepen}>{ codepen }</a></p>
       </div>
     </div>
   );

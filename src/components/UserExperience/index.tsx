@@ -16,10 +16,11 @@ interface UserExperienceProps {
 const UserExperience: React.FC<UserExperienceProps> = ({ experiences }) => {
   return (
     <section>
-      <h2>Experience</h2>
+      <h2 style={{ textAlign: 'center' }}>Experience</h2>
+      <hr />
       {experiences.map((exp, index) => (
-        <>
-          <div key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div key={index}>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div>
               <p>{exp.title}, {exp.company}</p>
             </div>
@@ -32,7 +33,7 @@ const UserExperience: React.FC<UserExperienceProps> = ({ experiences }) => {
               <li key={idx}>{ach}</li>
             ))}
           </ul>
-        </>
+        </div>
       ))}
     </section>
   );
