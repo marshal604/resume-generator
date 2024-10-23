@@ -1,5 +1,6 @@
 {
   "name": "resume-generator",
+  "homepage": "https://marshal604.github.io/resume-generator/dist/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -5,7 +5,7 @@ import GeneratorPage from '@pages/GeneratorPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/resume-generator/dist">
       <Routes>
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/generator" element={<GeneratorPage />} />
