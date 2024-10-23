@@ -66,7 +66,7 @@ const ResumePage: React.FC = () => {
     { school: 'National Kaohsiung First University of Science and Technology', degree: 'B.S. in Computer and Communication Engineering', start_at: new Date('2011-09-01'), end_at: new Date('2015-06-01'), address: 'Kaohsiung, Taiwan' },
   ];
   return (
-    <div style={{ padding: '40px', maxWidth: '800px' }}>
+    <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
       <Resume userInfo={userInfo} skills={skills} experiences={experiences} education={education} />
     </div>
   );
