@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import ResumePage from '@pages/ResumePage';
 import GeneratorPage from '@pages/GeneratorPage';
 
@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/generator" element={<GeneratorPage />} />
+        <Route path="/" element={<Navigate to="/resume" replace />} />
       </Routes>
     </Router>
   );
