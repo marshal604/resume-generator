@@ -1,73 +1,97 @@
-import React from 'react';
-import Resume from '@components/Resume';
+import React from "react";
+import Resume from "@components/Resume";
 
 const ResumePage: React.FC = () => {
   const userInfo = {
-    address: 'Taipei, Taiwan',
-    email: 'marhsal604@gmail.com',
-    phone: '+886 932-006-604',
-    name: 'Hubert Yang',
-    linkedin: 'linkedin.com/in/hubert-yang-01b9a51ab/',
-    github: 'github.com/marshal604',
-    codepen: 'codepen.io/marshal604',
+    address: "Taipei, Taiwan",
+    email: "marhsal604@gmail.com",
+    phone: "",
+    name: "Hubert Yang",
+    linkedin: "https://linkedin.com/in/hubert-yang-01b9a51ab/",
+    github: "https://github.com/marshal604",
+    codepen: "https://codepen.io/marshal604",
   };
-  const skills = ['JavaScript', 'TypeScript', 'Vue', 'React', 'Angular', 'Node.js', 'NewRelic', 'Storybook', 'Jest', 'AWS(CloudFront, Lambda@Edge, S3)'];
+  const aboutMe =
+    "Frontend-focused engineer with deep experience in optimization, monitoring, and deployment automation.";
   const experiences = [
-    { 
-      title: 'Sr. Frontend Engineer',
-      company: 'AmazingTaker',
-      start_at: new Date('2021-02-01'),
+    {
+      title: "Sr. Frontend Engineer",
+      company: "AmazingTaker",
+      start_at: new Date("2021-02-01"),
       end_at: null,
       achievements: [
-        `Implemented dynamic store loading, reducing initial page load size by 25% (400 KB to 300 KB gzipped).`,
-        `Streamlined notification logic and merged 30 payment components into 5 reusable ones, reducing maintenance effort and speeding up development.`,
-        `Optimized CloudFront caching by simplifying URL structures and unifying cache behaviors, improving hit rates and reducing complexity. Streamlined CDN architecture from dual-layer to single-layer, cutting costs by 20%.`,
-        `Leveraged Edge@Lambda for dynamic content delivery, reducing server load by 80% and cutting response times from 400 ms to 120 ms.`,
-        `Enhanced deployment speed by optimizing Docker builds, creating a base image for node modules and system packages, cutting build time from 16 to 10 minutes, and leveraging GitHub Actions cache to accelerate workflows.`,
-        `Built internal tools like feature toggles, a Chrome extension, Slack deployment commands, and Metabase dashboards, boosting productivity, decision-making, and deployment efficiency.`,
-        `Presented on WebRTC, XSS prevention, Micro-Frontends, AWS Serverless, GraphQL Caching, etc., at internal Tech Sharing sessions, and authored technical documentation on AWS monitoring, NewRelic, feature toggles, best practices for dynamic store loading, etc., improving team knowledge and reducing communication overhead.`,
-        `Led migration of Zoom recordings to Amazon S3 with Node.js for batch file uploads and Rails for processing SQS webhooks, ensuring data integrity and reliability.`
+        `Led a 25% bundle size reduction (400 KB → 300 KB gzipped) in 2 months by identifying global Vuex stores with
+        Webpack Bundle Analyzer, modularizing via dynamic loading, and coordinating a 5-person task force with
+        documented SOPs.`,
+        `Shaped the early architecture for Nx-based micro-frontends by contributing to Nuxt2 modularization planning and
+        proposing a phased Nuxt3 migration strategy that minimized risk and accelerated rollout.`,
+        `Improved SEO performance and reduced TTFB from 400 ms to 120 ms by optimizing CDN cache hit rates using
+        Lambda@Edge for dynamic content delivery.`,
+        `Consolidated 30+ payment components into 5 reusable modules by abstracting common logic and standardizing
+        notification handling, significantly improving scalability and streamlining development workflows.`,
+        `Led CI/CD pipeline optimization with the SRE team, reducing deployment time by 62% (18m → 7m) through
+        Docker tuning and parallel job execution.`,
+        `Built end-to-end monitoring strategies across Nuxt, React, and video systems, leveraging NewRelic,
+        OpenTelemetry, and Grafana to capture key metrics and surface errors early—accelerating debugging and
+        improving system reliability.`,
+        `Spearheaded a refactor initiative for a legacy React-based video system, defining clear module boundaries and
+        component roles to reduce maintenance overhead and improve codebase readability.`,
+        `Delivered technical sharing sessions to 30+ colleagues, sharing practical takeaways from recent projects and
+        upcoming technologies to enhance team readiness and alignment.`,
       ],
     },
-    { 
-      title: 'Frontend Engineer',
-      company: 'ViewSonic',
-      start_at: new Date('2020-08-01'),
-      end_at: new Date('2021-01-01'),
+    {
+      title: "Frontend Engineer",
+      company: "ViewSonic",
+      start_at: new Date("2020-08-01"),
+      end_at: new Date("2021-01-01"),
       achievements: [
-        `Independently developed two RWD management consoles using Angular, leveraging a shared component library and custom modules (e.g., auth, drag-and-drop, and overlay management) to streamline development and reduce redundancy.`,
+        `Led the end-to-end development of two internal management consoles from scratch using Angular, establishing
+automated setup and modular design to accelerate delivery and ensure maintainability.`,
       ],
     },
-    { 
-      title: 'Software Engineer',
-      company: 'Genie Network',
-      start_at: new Date('2018-06-01'),
-      end_at: new Date('2020-05-01'),
+    {
+      title: "Software Engineer",
+      company: "Genie Network",
+      start_at: new Date("2018-06-01"),
+      end_at: new Date("2020-05-01"),
       achievements: [
-        `Led the development of dashboard modules, integrating drag-and-drop, asynchronous widget refreshing, and dynamic component management using a SSOT approach. Implemented state management and Node.js APIs with GraphQL, incorporating AJV for input validation, ensuring secure and efficient data flow.`,
-        `Customized Angular Material and amCharts4 themes for seamless Light/Dark mode transitions.`,
-        `Developed interactive data visualizations using amCharts4 and d3.js, enabling seamless interaction between tables and charts, and integrating geo-location data to visualize regional patterns and cybersecurity attack maps.`,
-        `Enhanced Developer Experience (DX) by automating versioning and i18n updates using Gulp, and developing UI component prototypes with Storybook for faster design iterations and team collaboration.`,
+        `Owned the Angular dashboard module, implementing drag-and-drop, dynamic loading, and performance tuning
+for smooth data updates backed by GraphQL.`,
+        `Built rich, interactive reports using amCharts and custom d3.js visualizations, and led theme standardization for
+consistent light/dark UI support.`,
+        `Enhanced developer experience by automating the i18n update process and employing Storybook to create an
+interactive component library documentation.`,
       ],
     },
-    { 
-      title: 'Software Engineer',
-      company: 'SunNet Tech',
-      start_at: new Date('2016-12-01'),
-      end_at: new Date('2018-05-01'),
+    {
+      title: "Software Engineer",
+      company: "SunNet Tech",
+      start_at: new Date("2016-12-01"),
+      end_at: new Date("2018-05-01"),
       achievements: [
-        `Integrated Video.js for video watermarking and timeline control in a Hybrid App.`,
-        `Developed a Bluetooth-based attendance system and optimized file upload processes.`,
-        `Launched apps on Google Play and Apple App Store, handling enterprise certificates and audits.`,
+        `Built and published hybrid apps with WebView and native integrations (e.g., video control, Bluetooth), handling
+certificates and app store submissions for both iOS and Android.`,
       ],
     },
   ];
   const education = [
-    { school: 'National Kaohsiung First University of Science and Technology', degree: 'B.S. in Computer and Communication Engineering', start_at: new Date('2011-09-01'), end_at: new Date('2015-06-01'), address: 'Kaohsiung, Taiwan' },
+    {
+      school: "National Kaohsiung First University of Science and Technology",
+      degree: "B.S. in Computer and Communication Engineering",
+      start_at: new Date("2011-09-01"),
+      end_at: new Date("2015-06-01"),
+      address: "Kaohsiung, Taiwan",
+    },
   ];
   return (
-    <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
-      <Resume userInfo={userInfo} skills={skills} experiences={experiences} education={education} />
+    <div style={{ padding: "40px", maxWidth: "800px", margin: "0 auto" }}>
+      <Resume
+        userInfo={userInfo}
+        aboutMe={aboutMe}
+        experiences={experiences}
+        education={education}
+      />
     </div>
   );
 };

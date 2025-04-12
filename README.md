@@ -2,10 +2,10 @@
 
 ## DEMO
 
-### React
+### React (Only show resume)
 - [My Resume](https://marshal604.github.io/resume-generator/dist/#/resume)
 
-### Angular - Legacy
+### Angular - Original Project (Legacy)
 - [Resume Generator Demo](https://marshal604.github.io/resume-generator/legacy/dist/#/resume/generator?path=sample.txt)
 - [Source Code](https://github.com/marshal604/resume-generator/tree/legacy)
 

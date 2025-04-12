@@ -1,7 +1,7 @@
 // src/components/common/Resume/Resume.tsx
 import React from 'react';
 import UserInfo from '@components/UserInfo';
-import UserSkill from '@components/UserSkill';
+import UserAboutMe from '@/components/UserAboutMe';
 import UserExperience from '@components/UserExperience';
 import UserEducation from '@components/UserEducation';
 
@@ -15,7 +15,7 @@ interface ResumeProps {
     github: string;
     codepen: string;
   };
-  skills: string[];
+  aboutMe: string;
   experiences: {
     title: string;
     company: string;
@@ -32,11 +32,11 @@ interface ResumeProps {
   }[];
 }
 
-const Resume: React.FC<ResumeProps> = ({ userInfo, skills, experiences, education }) => {
+const Resume: React.FC<ResumeProps> = ({ userInfo, aboutMe, experiences, education }) => {
   return (
     <div>
       <UserInfo {...userInfo} />
-      <UserSkill skills={skills} />
+      <UserAboutMe aboutMe={aboutMe} />
       <UserExperience experiences={experiences} />
       <UserEducation education={education} />
     </div>
